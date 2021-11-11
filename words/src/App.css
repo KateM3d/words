@@ -1,4 +1,9 @@
-.App-header {
-    background-color: #282c34;
-    color: white;
+.App {
+    display: block;
+    justify-content: center;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
 }
