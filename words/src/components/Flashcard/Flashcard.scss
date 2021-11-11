@@ -1,0 +1,25 @@
+.flashcardBody {
+    margin-top: 10%;
+    width: 350px;
+    height: 250px;
+    background-color: #fff;
+    border-radius: 20px;
+    border: 1px solid #04132d;
+    box-shadow: 5px 10px 50px 30px #6b788f;
+    text-align: center;
+}
+
+.word {
+    &_category {
+        margin-top: 50px;
+        color: #C9CCD5;
+    }
+    &_french {
+        color: #053742;
+        font-size: 30px;
+    }
+    &_transcription {
+        color: #053742;
+        font-size: 20px;
+    }
+}
