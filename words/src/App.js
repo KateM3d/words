@@ -2,6 +2,7 @@ import React from "react";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import Flashcard from "./components/Flashcard/Flashcard";
+import Button from "./components/Buttons/Button";
 
 import "./App.css";
 
@@ -57,6 +58,17 @@ let words = [
   // },
 ];
 
+let decisions = [
+  {
+    key: 21,
+    status: "know",
+  },
+  {
+    key: 22,
+    status: "do not know",
+  },
+];
+
 function App() {
   return (
     <div className="App">
@@ -70,6 +82,11 @@ function App() {
             english={word.english}
             category={word.category}
           />
+        ))}
+      </div>
+      <div className="decisionBtn">
+        {decisions.map((decision) => (
+          <Button key={decision.key} status={decision.status} />
         ))}
       </div>
       <Footer />
