@@ -5,6 +5,11 @@ import Flashcard from "./components/Flashcard/Flashcard";
 import Button from "./components/Buttons/Button";
 import Topic from "./components/Topics/Topic";
 
+import sport from "./components/Topics/sport.jpg";
+import travel from "./components/Topics//travel.jpg";
+import fun from "./components/Topics//fun.jpg";
+import colors from "./components/Topics//colors.jpg";
+
 import "./App.css";
 
 const words = [
@@ -63,22 +68,22 @@ const categoryTopics = [
   {
     id: "001",
     category: "Travel",
-    image: "{trave}",
+    image: travel,
   },
   {
     id: "002",
     category: "Colors",
-    image: "{colors}",
+    image: colors,
   },
   {
     id: "003",
     category: "Sport",
-    image: "{sport}",
+    image: sport,
   },
   {
     id: "004",
     category: "Fun",
-    image: "{fun}",
+    image: fun,
   },
 ];
 
