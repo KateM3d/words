@@ -3,10 +3,11 @@ import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import Flashcard from "./components/Flashcard/Flashcard";
 import Button from "./components/Buttons/Button";
+import Topic from "./components/Topics/Topic";
 
 import "./App.css";
 
-let words = [
+const words = [
   {
     id: "1",
     french: "rouge",
@@ -15,47 +16,70 @@ let words = [
     category: "colors",
   },
   // {
-  //   id: "2",
-  //   french: "gris",
-  //   transcription: "[ ɡʀi ]",
-  //   english: "grey",
-  //   category: "colors",
+  //     id: "2",
+  //     french: "gris",
+  //     transcription: "[ ɡʀi ]",
+  //     english: "grey",
+  //     category: "colors",
   // },
   // {
-  //   id: "3",
-  //   french: "vert",
-  //   transcription: "[ vɛʀ ]",
-  //   english: "green",
-  //   category: "colors",
+  //     id: "3",
+  //     french: "vert",
+  //     transcription: "[ vɛʀ ]",
+  //     english: "green",
+  //     category: "colors",
   // },
   // {
-  //   id: "4",
-  //   french: "blanc",
-  //   transcription: "[ blɑ̃ ]",
-  //   english: "white",
-  //   category: "colors",
+  //     id: "4",
+  //     french: "blanc",
+  //     transcription: "[ blɑ̃ ]",
+  //     english: "white",
+  //     category: "colors",
   // },
   // {
-  //   id: "5",
-  //   french: "noir",
-  //   transcription: "[ nwaʀ ]",
-  //   english: "black",
-  //   category: "colors",
+  //     id: "5",
+  //     french: "noir",
+  //     transcription: "[ nwaʀ ]",
+  //     english: "black",
+  //     category: "colors",
   // },
   // {
-  //   id: "6",
-  //   french: "jaune",
-  //   transcription: "[ ʒon ]",
-  //   english: "yellow",
-  //   category: "colors",
+  //     id: "6",
+  //     french: "jaune",
+  //     transcription: "[ ʒon ]",
+  //     english: "yellow",
+  //     category: "colors",
   // },
   // {
-  //   id: "7",
-  //   french: "bleu",
-  //   transcription: "[ blo͝o ]",
-  //   english: "blue",
-  //   category: "colors",
+  //     id: "7",
+  //     french: "bleu",
+  //     transcription: "[ blo͝o ]",
+  //     english: "blue",
+  //     category: "colors",
   // },
+];
+
+const categoryTopics = [
+  {
+    id: "001",
+    category: "Travel",
+    image: "{trave}",
+  },
+  {
+    id: "002",
+    category: "Colors",
+    image: "{colors}",
+  },
+  {
+    id: "003",
+    category: "Sport",
+    image: "{sport}",
+  },
+  {
+    id: "004",
+    category: "Fun",
+    image: "{fun}",
+  },
 ];
 
 let decisions = [
@@ -73,6 +97,11 @@ function App() {
   return (
     <div className="App">
       <Header />
+      <div className="category">
+        {categoryTopics.map((topic) => (
+          <Topic key={topic.id} category={topic.category} image={topic.image} />
+        ))}
+      </div>
       <div className="container">
         {words.map((word) => (
           <Flashcard

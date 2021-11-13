@@ -7,3 +7,8 @@
     display: flex;
     justify-content: center;
 }
+
+.category {
+    display: flex;
+    justify-content: space-between;
+}
