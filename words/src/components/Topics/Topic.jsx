@@ -1,5 +1,6 @@
 import React from "react";
 import "../Flashcard/Flashcard.scss";
+import "./Topic.scss";
 import sport from "./sport.jpg";
 import travel from "./travel.jpg";
 import fun from "./fun.jpg";
