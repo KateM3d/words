@@ -7,7 +7,7 @@ function WelcomingNote() {
   return (
     <div className="welcome">
       <div className="welcomePage">
-        <img src={welcome} alt="welcome" />
+        <img className="welcomeImage" src={welcome} alt="welcome" />
         <div className="welcomeMessage">
           <h1 className="welcomeMessageText">Welcome to your jorney!</h1>
           <h3 className="welcomeMessageText">The easy way to learn French</h3>

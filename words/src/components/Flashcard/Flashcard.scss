@@ -1,5 +1,5 @@
 .flashcardBody {
-    margin-top: 10%;
+    margin-top: 5%;
     width: 350px;
     height: 250px;
     background-color: #fff;
@@ -7,6 +7,7 @@
     border: 1px solid #04132d;
     box-shadow: 5px 10px 50px 30px #6b788f;
     text-align: center;
+    justify-content: center;
     &:hover {
         cursor: pointer;
     }

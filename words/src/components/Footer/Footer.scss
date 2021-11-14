@@ -2,12 +2,13 @@
     background-color: #04132d;
     color: #fff;
     height: 80px;
-    width: 115vw;
-    margin-left: -25px;
+    // margin-left: -25px;
     margin-top: 20vh;
+    margin-left: -25px;
+    background-color: #04132d;
+    width: 100vw;
     &Text {
         text-align: center;
-        padding-right: 15%;
         padding-top: 30px;
     }
 }

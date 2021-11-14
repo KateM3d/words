@@ -1,14 +1,15 @@
 .App {
     display: block;
     justify-content: center;
+    width: 100%;
 }
 
 .container {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
 }
 
 .category {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }

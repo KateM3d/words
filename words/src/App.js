@@ -5,13 +5,16 @@ import Flashcard from "./components/Flashcard/Flashcard";
 import Button from "./components/Buttons/Button";
 import Topic from "./components/Topics/Topic";
 import WelcomingNote from "./components/WelcomingNote/WelcomingNote";
+import ExerciseCard from "./components/ExerciseCard/ExerciseCard";
 
 import sport from "./components/Topics/sport.jpg";
 import travel from "./components/Topics/travel.jpg";
 import fun from "./components/Topics/fun.jpg";
 import colors from "./components/Topics/colors.jpg";
+import english from "./components/ExerciseCard/english.png";
+import french from "./components/ExerciseCard/french.png";
 
-import "./App.css";
+import "./App.scss";
 
 const words = [
   {
@@ -88,7 +91,7 @@ const categoryTopics = [
   },
 ];
 
-let decisions = [
+const decisions = [
   {
     key: 21,
     status: "know",
@@ -99,6 +102,20 @@ let decisions = [
   },
 ];
 
+const exerciseTypes = [
+  {
+    key: 31,
+    type: "English TO French",
+    typeImageOne: english,
+    typeImageTwo: french,
+  },
+  {
+    key: 32,
+    type: "French TO English",
+    typeImageOne: french,
+    typeImageTwo: english,
+  },
+];
 function App() {
   return (
     <div className="App">
@@ -110,6 +127,20 @@ function App() {
           <Topic key={topic.id} category={topic.category} image={topic.image} />
         ))}
       </div>
+
+      <div className="containerExerciseType">
+        <div className="category">
+          {exerciseTypes.map((exType) => (
+            <ExerciseCard
+              key={exType.key}
+              type={exType.type}
+              typeImageOne={exType.typeImageOne}
+              typeImageTwo={exType.typeImageTwo}
+            />
+          ))}
+        </div>
+      </div>
+
       {/* <div className="container">
         {words.map((word) => (
           <Flashcard
@@ -126,6 +157,7 @@ function App() {
           <Button key={decision.key} status={decision.status} />
         ))}
       </div> */}
+
       <Footer />
     </div>
   );
