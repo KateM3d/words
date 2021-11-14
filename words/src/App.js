@@ -4,11 +4,12 @@ import Footer from "./components/Footer/Footer";
 import Flashcard from "./components/Flashcard/Flashcard";
 import Button from "./components/Buttons/Button";
 import Topic from "./components/Topics/Topic";
+import WelcomingNote from "./components/WelcomingNote/WelcomingNote";
 
 import sport from "./components/Topics/sport.jpg";
-import travel from "./components/Topics//travel.jpg";
-import fun from "./components/Topics//fun.jpg";
-import colors from "./components/Topics//colors.jpg";
+import travel from "./components/Topics/travel.jpg";
+import fun from "./components/Topics/fun.jpg";
+import colors from "./components/Topics/colors.jpg";
 
 import "./App.css";
 
@@ -82,7 +83,7 @@ const categoryTopics = [
   },
   {
     id: "004",
-    category: "Fun",
+    category: "Create Your Own Category",
     image: fun,
   },
 ];
@@ -102,12 +103,14 @@ function App() {
   return (
     <div className="App">
       <Header />
+
+      <WelcomingNote />
       <div className="category">
         {categoryTopics.map((topic) => (
           <Topic key={topic.id} category={topic.category} image={topic.image} />
         ))}
       </div>
-      <div className="container">
+      {/* <div className="container">
         {words.map((word) => (
           <Flashcard
             key={word.id}
@@ -122,7 +125,7 @@ function App() {
         {decisions.map((decision) => (
           <Button key={decision.key} status={decision.status} />
         ))}
-      </div>
+      </div> */}
       <Footer />
     </div>
   );
