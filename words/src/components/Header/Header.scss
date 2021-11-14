@@ -5,13 +5,12 @@
         margin: -25px;
         background-color: #04132d;
         width: 100vw;
-    }
-    
-    .headerMenu {
-        display: flex;
-        justify-content: right;
-        height: 100px;
-        align-items: center;
+        &Menu {
+            display: flex;
+            justify-content: right;
+            height: 100px;
+            align-items: center;
+        }
     }
     
     .menu {
@@ -20,6 +19,12 @@
         font-family: $fontFamily;
         color: $fontColor;
         font-size: 22px;
+        &Slogan {
+            margin-right: auto;
+            color: #fff;
+            font-size: 60px;
+            font-family: 'Dancing Script', cursive;
+        }
     }
     
     .logo {
