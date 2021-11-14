@@ -1,4 +1,9 @@
-.topicImage {
-    width: 200px;
-    height: 150px;
+.topic {
+    &Image {
+        width: 200px;
+        height: 150px;
+    }
+    &Category {
+        font-size: 20px;
+    }
 }
