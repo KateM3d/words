@@ -7,6 +7,7 @@ function Header() {
     <div className="header">
       <ul className="headerMenu">
         <img src={logo} alt={logo} className="logo" />
+        <p className="menuSlogan">Learn French Today...</p>
         <li className="menu">Category</li>
         <li className="menu">Exercise</li>
         <li className="menu">Notes</li>
