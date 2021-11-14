@@ -1,0 +1,12 @@
+.tableRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.tableCell {
+    background-color: aqua;
+    width: 300px;
+    margin: 20px;
+    border-radius: 2px solid #dd43ee;
+}

@@ -6,6 +6,7 @@ import Button from "./components/Buttons/Button";
 import Topic from "./components/Topics/Topic";
 import WelcomingNote from "./components/WelcomingNote/WelcomingNote";
 import ExerciseCard from "./components/ExerciseCard/ExerciseCard";
+import CreateTopicTable from "./components/CreateTopicTable/CreateTopicTable";
 
 import sport from "./components/Topics/sport.jpg";
 import travel from "./components/Topics/travel.jpg";
@@ -15,7 +16,7 @@ import english from "./components/ExerciseCard/english.png";
 import french from "./components/ExerciseCard/french.png";
 
 import "./App.scss";
-
+//color words json
 const words = [
   {
     id: "1",
@@ -68,6 +69,7 @@ const words = [
   // },
 ];
 
+//category topics json
 const categoryTopics = [
   {
     id: "001",
@@ -90,7 +92,7 @@ const categoryTopics = [
     image: fun,
   },
 ];
-
+//decisions buttons
 const decisions = [
   {
     key: 21,
@@ -102,6 +104,7 @@ const decisions = [
   },
 ];
 
+//Type of exercise section json
 const exerciseTypes = [
   {
     key: 31,
@@ -116,18 +119,46 @@ const exerciseTypes = [
     typeImageTwo: english,
   },
 ];
+
+//table for create your own category json
+
+let createTableInner = [
+  {
+    id: 51,
+    typeInputEnglish: <input type="text" placeholder="French word"></input>,
+    typeInputTranscription: (
+      <input type="text" placeholder="Transcription"></input>
+    ),
+    typeInputFrench: <input type="text" placeholder="English word"></input>,
+    button: {
+      save: <button>Save</button>,
+      edit: <button>Edit</button>,
+      delete: <button>Delete</button>,
+    },
+  },
+  {
+    id: 52,
+    typeInputEnglish: <p>text</p>,
+    typeInputTranscription: <p>text</p>,
+    typeInputFrench: <p>text</p>,
+
+    button: {
+      edit: <button>Edit</button>,
+      delete: <button>Delete</button>,
+    },
+  },
+];
+
 function App() {
   return (
     <div className="App">
       <Header />
-
       <WelcomingNote />
-      <div className="category">
+      {/* <div className="category">
         {categoryTopics.map((topic) => (
           <Topic key={topic.id} category={topic.category} image={topic.image} />
         ))}
       </div>
-
       <div className="containerExerciseType">
         <div className="category">
           {exerciseTypes.map((exType) => (
@@ -140,8 +171,7 @@ function App() {
           ))}
         </div>
       </div>
-
-      {/* <div className="container">
+      <div className="container">
         {words.map((word) => (
           <Flashcard
             key={word.id}
@@ -151,13 +181,22 @@ function App() {
             category={word.category}
           />
         ))}
-      </div>
+      </div> */}
       <div className="decisionBtn">
         {decisions.map((decision) => (
           <Button key={decision.key} status={decision.status} />
         ))}
-      </div> */}
-
+      </div>
+      <div className="container">
+        {createTableInner.map((inner) => (
+          <CreateTopicTable
+            key={inner.id}
+            typeInputEnglish={inner.typeInputEnglish}
+            typeInputTranscription={inner.typeInputTranscription}
+            typeInputFrench={inner.typeInputFrench}
+          />
+        ))}
+      </div>
       <Footer />
     </div>
   );
