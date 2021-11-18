@@ -37,6 +37,7 @@ function CreateTopicTable() {
       {createTableInner.map((inner) => (
         <TableRow
           key={inner.id}
+          id={inner.id}
           word={inner.word}
           transcription={inner.transcription}
           translation={inner.translation}
