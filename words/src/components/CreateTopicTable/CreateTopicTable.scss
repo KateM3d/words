@@ -1,32 +1,51 @@
+$fontFamily:'Montserrat',
+sans-serif;
+$fontColor: #3297da;
 .containerTable {
     margin-top: 50px;
 }
 
-.tableHeader {
-    width: 400px;
-    text-align: center;
-    border: 1px solid #3297da;
-    padding: 20px;
-    background-color: #afc7d8;
-    &Container {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
+.table {
+    &Btn {
+        margin: 10px;
+        width: 70px;
+        height: 40px;
+        background-color: #04132d;
+        border: 2px solid #1b81c8;
+        border-radius: 10px;
+        // box-shadow: 5px 10px 50px 10px #6b788f;
+        color: #fff;
+        font-family: $fontFamily;
+        font-size: 15px;
     }
+    &Header {
+        width: 400px;
+        text-align: center;
+        border: 1px solid $fontColor;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        padding: 20px;
+        background-color: #04132d;
+        color: $fontColor;
+        font-size: 25px;
+        &Container {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+    }
+}
+
+.btnSave {
+    display: none;
+    background-color: orange;
 }
 
 .row {
     background-color: #fff;
+    &Btn {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+    }
 }
-
-// .tableRow {
-//     display: flex;
-//     flex-direction: row;
-//     justify-content: space-evenly;
-// }
-// .tableCell {
-//     background-color: aqua;
-//     width: 300px;
-//     margin: 20px;
-//     border-radius: 2px solid #dd43ee;
-// }
