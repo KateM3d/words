@@ -7,8 +7,15 @@ function TableRow(props) {
       <div className="tableHeader row">{props.word}</div>
       <div className="tableHeader row">{props.transcription}</div>
       <div className="tableHeader row">{props.translation}</div>
-      <div className="tableHeader row">
-        <button className="tableBtn btnSave">Save</button>
+      <div className="tableHeader row rowBtn">
+        <button
+          className={
+            "tableBtn" +
+            (props.id === 1002 || props.id === 1004 ? " btnSave" : "")
+          }
+        >
+          Save
+        </button>
         <button className="tableBtn">Edit</button>
         <button className="tableBtn">Delete</button>
       </div>
