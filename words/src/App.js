@@ -122,33 +122,6 @@ const exerciseTypes = [
 
 //table for create your own category json
 
-let createTableInner = [
-  {
-    id: 51,
-    typeInputEnglish: <input type="text" placeholder="French word"></input>,
-    typeInputTranscription: (
-      <input type="text" placeholder="Transcription"></input>
-    ),
-    typeInputFrench: <input type="text" placeholder="English word"></input>,
-    button: {
-      save: <button>Save</button>,
-      edit: <button>Edit</button>,
-      delete: <button>Delete</button>,
-    },
-  },
-  {
-    id: 52,
-    typeInputEnglish: <p>text</p>,
-    typeInputTranscription: <p>text</p>,
-    typeInputFrench: <p>text</p>,
-
-    button: {
-      edit: <button>Edit</button>,
-      delete: <button>Delete</button>,
-    },
-  },
-];
-
 function App() {
   return (
     <div className="App">
@@ -187,16 +160,7 @@ function App() {
           <Button key={decision.key} status={decision.status} />
         ))}
       </div>
-      <div className="container">
-        {createTableInner.map((inner) => (
-          <CreateTopicTable
-            key={inner.id}
-            typeInputEnglish={inner.typeInputEnglish}
-            typeInputTranscription={inner.typeInputTranscription}
-            typeInputFrench={inner.typeInputFrench}
-          />
-        ))}
-      </div>
+      <CreateTopicTable />
       <Footer />
     </div>
   );

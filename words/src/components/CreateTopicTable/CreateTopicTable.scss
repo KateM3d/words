@@ -1,12 +1,32 @@
-.tableRow {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
+.containerTable {
+    margin-top: 50px;
 }
 
-.tableCell {
-    background-color: aqua;
-    width: 300px;
-    margin: 20px;
-    border-radius: 2px solid #dd43ee;
+.tableHeader {
+    width: 400px;
+    text-align: center;
+    border: 1px solid #3297da;
+    padding: 20px;
+    background-color: #afc7d8;
+    &Container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
 }
+
+.row {
+    background-color: #fff;
+}
+
+// .tableRow {
+//     display: flex;
+//     flex-direction: row;
+//     justify-content: space-evenly;
+// }
+// .tableCell {
+//     background-color: aqua;
+//     width: 300px;
+//     margin: 20px;
+//     border-radius: 2px solid #dd43ee;
+// }
