@@ -41,6 +41,7 @@ function CreateTopicTable() {
           word={inner.word}
           transcription={inner.transcription}
           translation={inner.translation}
+          editMode={inner.id === 1002 || inner.id === 1004}
         />
       ))}
     </div>
