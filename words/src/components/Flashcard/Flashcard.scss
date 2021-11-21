@@ -15,7 +15,7 @@
 
 .word {
     &_category {
-        margin-top: 50px;
+        margin-top: 30px;
         color: #C9CCD5;
     }
     &_french {
@@ -25,5 +25,20 @@
     &_transcription {
         color: #053742;
         font-size: 20px;
+    }
+    &_translation {
+        color: #053742;
+        font-size: 20px;
+    }
+}
+
+.translationBtn {
+    border: 1px solid #247ed0;
+    border-radius: 10px;
+    color: #3f90db;
+    background-color: #04132d;
+    width: 150px;
+    &:hover {
+        cursor: pointer;
     }
 }
