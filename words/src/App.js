@@ -7,6 +7,7 @@ import Topic from "./components/Topics/Topic";
 import WelcomingNote from "./components/WelcomingNote/WelcomingNote";
 import ExerciseCard from "./components/ExerciseCard/ExerciseCard";
 import CreateTopicTable from "./components/CreateTopicTable/CreateTopicTable";
+import DropArea from "./components/DropArea/DropArea";
 
 import sport from "./components/Topics/sport.jpg";
 import travel from "./components/Topics/travel.jpg";
@@ -155,6 +156,7 @@ function App() {
           />
         ))}
       </div>
+      <DropArea />
       <div className="decisionBtn">
         {decisions.map((decision) => (
           <Button key={decision.key} status={decision.status} />
