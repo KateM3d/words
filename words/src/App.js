@@ -25,48 +25,48 @@ const words = [
     english: "red",
     category: "colors",
   },
-  // {
-  //     id: "2",
-  //     french: "gris",
-  //     transcription: "[ ɡʀi ]",
-  //     english: "grey",
-  //     category: "colors",
-  // },
-  // {
-  //     id: "3",
-  //     french: "vert",
-  //     transcription: "[ vɛʀ ]",
-  //     english: "green",
-  //     category: "colors",
-  // },
-  // {
-  //     id: "4",
-  //     french: "blanc",
-  //     transcription: "[ blɑ̃ ]",
-  //     english: "white",
-  //     category: "colors",
-  // },
-  // {
-  //     id: "5",
-  //     french: "noir",
-  //     transcription: "[ nwaʀ ]",
-  //     english: "black",
-  //     category: "colors",
-  // },
-  // {
-  //     id: "6",
-  //     french: "jaune",
-  //     transcription: "[ ʒon ]",
-  //     english: "yellow",
-  //     category: "colors",
-  // },
-  // {
-  //     id: "7",
-  //     french: "bleu",
-  //     transcription: "[ blo͝o ]",
-  //     english: "blue",
-  //     category: "colors",
-  // },
+  {
+    id: "2",
+    french: "gris",
+    transcription: "[ ɡʀi ]",
+    english: "grey",
+    category: "colors",
+  },
+  {
+    id: "3",
+    french: "vert",
+    transcription: "[ vɛʀ ]",
+    english: "green",
+    category: "colors",
+  },
+  {
+    id: "4",
+    french: "blanc",
+    transcription: "[ blɑ̃ ]",
+    english: "white",
+    category: "colors",
+  },
+  {
+    id: "5",
+    french: "noir",
+    transcription: "[ nwaʀ ]",
+    english: "black",
+    category: "colors",
+  },
+  {
+    id: "6",
+    french: "jaune",
+    transcription: "[ ʒon ]",
+    english: "yellow",
+    category: "colors",
+  },
+  {
+    id: "7",
+    french: "bleu",
+    transcription: "[ blo͝o ]",
+    english: "blue",
+    category: "colors",
+  },
 ];
 
 //category topics json
@@ -127,7 +127,7 @@ function App() {
     <div className="App">
       <Header />
       <WelcomingNote />
-      {/* <div className="category">
+      <div className="category">
         {categoryTopics.map((topic) => (
           <Topic key={topic.id} category={topic.category} image={topic.image} />
         ))}
@@ -154,7 +154,7 @@ function App() {
             category={word.category}
           />
         ))}
-      </div> */}
+      </div>
       <div className="decisionBtn">
         {decisions.map((decision) => (
           <Button key={decision.key} status={decision.status} />
