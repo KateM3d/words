@@ -1,25 +1,51 @@
 import React from "react";
+import { useState } from "react";
 import "./CreateTopicTable.scss";
 
 function TableRow(props) {
+  const [btnEdit, setBtnEdit] = useState(false);
+
+  const modifyEdit = () => {
+    setBtnEdit(!btnEdit);
+  };
   return (
     <div className="tableHeaderContainer">
-      <div className="tableHeader row">{props.word}</div>
-      <div className="tableHeader row">{props.transcription}</div>
-      <div className="tableHeader row">{props.translation}</div>
+      {btnEdit === true ? (
+        <>
+          <div className="tableHeader row">
+            <input className="input" type="text" defaultValue={props.word} />
+          </div>
+          <div className="tableHeader row">
+            {" "}
+            <input
+              className="input"
+              type="text"
+              defaultValue={props.transcription}
+            />
+          </div>
+          <div className="tableHeader row">
+            <input
+              className="input"
+              type="text"
+              defaultValue={props.translation}
+            />
+          </div>
+        </>
+      ) : (
+        <>
+          <div className="tableHeader row">{props.word}</div>
+          <div className="tableHeader row"> {props.transcription}</div>
+          <div className="tableHeader row">{props.translation}</div>
+        </>
+      )}
+
       <div className="tableHeader row rowBtn">
-        {props.editMode ? (
-          <>
-            <button className="tableBtn">Edit</button>
-            <button className="tableBtn">Delete</button>
-          </>
-        ) : (
-          <>
-            <button className="tableBtn">Save</button>
-            <button className="tableBtn">Edit</button>
-            <button className="tableBtn">Delete</button>
-          </>
-        )}
+        <button onClick={modifyEdit} className="tableBtn">
+          {btnEdit === true ? "Delete Edit" : "Edit"}
+        </button>
+
+        <button className="tableBtn">Delete</button>
+        {props.editMode ? null : <button className="tableBtn">Save</button>}
       </div>
     </div>
   );
