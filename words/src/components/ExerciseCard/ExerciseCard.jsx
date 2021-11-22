@@ -5,7 +5,7 @@ import rightArrow from "./right-arrow.png";
 
 function ExerciseCard(props) {
   return (
-    <div className="flashcardBody">
+    <div className="flashcardBody nonAbsolute">
       <p className="exerciseType">{props.type}</p>
       <div className="exerciseTypeImageContainer">
         <img
