@@ -1,65 +1,42 @@
-import React from "react";
+import React, { useRef } from "react";
 import { useState } from "react";
 import "./Flashcard.scss";
-import DropArea from "../DropArea/DropArea";
 
 function Flashcard(props) {
+  const ref = useRef(null); // это просто ссылка на элемент карточки, раньше он у тебя назывался dragItem
   const [showTranslation, setShowTranslation] = useState(false);
 
-  let handleTranslation = () => {
+  const handleTranslation = () => {
     setShowTranslation(!showTranslation);
   };
 
-  let hideTranslation = () => {
+  const hideTranslation = () => {
     setShowTranslation(!showTranslation);
   };
-  //drag and drop flashcards
-  let flashcards = document.querySelectorAll(".flashcardBody");
-  let dragItem;
 
-  for (let flashcard of flashcards) {
-    flashcard.addEventListener("dragstart", dragStart);
-    flashcard.addEventListener("dragend", dragEnd);
+  function dragStart(e) {
+    const element = ref.current;
+    if (!element) return;
+    e.dataTransfer.setData("id", props.english); // при перетаскивании нужно проставить id, чтобы потом в onDrop можно было бы получить перетаскиваемый элемент
+    setTimeout(() => (element.style.display = "none"), 0);
   }
 
-  function dragStart() {
-    setTimeout(() => (this.style.display = "none"), 0);
-    return (dragItem = this);
-  }
-
-  function dragEnd() {
-    setTimeout(() => (this.style.display = "block"), 0);
-    return (dragItem = this);
-  }
-
-  let dropAreas = document.querySelectorAll(".dropArea");
-  for (let dropArea of dropAreas) {
-    dropArea.addEventListener("dragover", dragOver);
-    dropArea.addEventListener("dragenter", dragEnter);
-    dropArea.addEventListener("dragleave", dragLeave);
-    dropArea.addEventListener("drop", drop);
-  }
-  console.log(dropAreas);
-  function drop(e) {
-    e.preventDefault();
-    this.append(dragItem);
-  }
-
-  function dragOver(e) {
-    e.preventDefault();
-  }
-
-  function dragEnter(e) {
-    e.preventDefault();
-  }
-
-  function dragLeave() {
-    this.style.border = "none";
+  function dragEnd(e) {
+    const element = ref.current;
+    if (!element) return;
+    setTimeout(() => (element.style.display = "block"), 0);
   }
 
   return (
     <>
-      <div className="flashcardBody" draggable>
+      <div
+        id={"flashcardBody" + props.english} //id карточки нужен для того, чтобы потом в onDrop получить этот элемент и добавить его в dropArea
+        className={"flashcardBody"}
+        draggable
+        onDragStart={dragStart} // листенеры теперь навешиваются здесь
+        onDragEnd={dragEnd}
+        ref={ref}
+      >
         <p className={`word_category`}>{props.category}</p>
         <p className={`word_french`}>{props.french}</p>
         <p className={`word_transcription`}>{props.transcription}</p>
