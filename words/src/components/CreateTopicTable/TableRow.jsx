@@ -16,7 +16,6 @@ function TableRow(props) {
             <input className="input" type="text" defaultValue={props.word} />
           </div>
           <div className="tableHeader row">
-            {" "}
             <input
               className="input"
               type="text"
@@ -43,8 +42,7 @@ function TableRow(props) {
         <button onClick={modifyEdit} className="tableBtn">
           {btnEdit === true ? "Delete Edit" : "Edit"}
         </button>
-
-        <button className="tableBtn">Delete</button>
+        <button className="tableBtn">Delete</button>git status
         {props.editMode ? null : <button className="tableBtn">Save</button>}
       </div>
     </div>
