@@ -8,7 +8,7 @@ import colors from "./colors.jpg";
 
 function Topic(props) {
   return (
-    <div className="flashcardBody">
+    <div className="flashcardBody nonAbsolute">
       <p className={`topicCategory`}>{props.category}</p>
       <img className="topicImage" src={props.image} alt={props.category} />
     </div>
