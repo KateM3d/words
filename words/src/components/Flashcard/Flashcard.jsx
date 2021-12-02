@@ -63,13 +63,11 @@ function Card() {
     <div className="containerCards">
       {words.map((word) => (
         <div className="flashcardBody" key={word.id}>
-          <p className={`word ${word.category}`}>{word.category}</p>
-          <p className={`word ${word.french}`}>{word.french}</p>
-          <p className={`word ${word.transcription} `}>{word.transcription}</p>
+          <p className="word_category">{word.category}</p>
+          <p className="word_french">{word.french}</p>
+          <p className="word_transcription">{word.transcription}</p>
           <p
-            className={`word ${word.french} ${
-              !showTranslation && "translationBtn"
-            }`}
+            className={`word_french ${!showTranslation && "translationBtn"}`}
             onClick={handleTranslationClick}
           >
             {!showTranslation ? "translation" : `${word.english}`}
