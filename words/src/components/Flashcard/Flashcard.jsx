@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Flashcard.scss";
 
 const words = [
@@ -54,14 +54,26 @@ const words = [
 ];
 
 function Card() {
+  const [showTranslation, setShowTranslation] = useState(false);
+
+  function handleTranslationClick() {
+    setShowTranslation(!showTranslation);
+  }
   return (
     <div className="containerCards">
       {words.map((word) => (
-        <div className="cardInner" key={word.id}>
-          <p>{word.category}</p>
-          <p>{word.french}</p>
-          <p>{word.transcription}</p>
-          <p>translation</p>
+        <div className="flashcardBody" key={word.id}>
+          <p className={`word ${word.category}`}>{word.category}</p>
+          <p className={`word ${word.french}`}>{word.french}</p>
+          <p className={`word ${word.transcription} `}>{word.transcription}</p>
+          <p
+            className={`word ${word.french} ${
+              !showTranslation && "translationBtn"
+            }`}
+            onClick={handleTranslationClick}
+          >
+            {!showTranslation ? "translation" : `${word.english}`}
+          </p>
         </div>
       ))}
     </div>
