@@ -16,41 +16,41 @@ const words = [
     english: "grey",
     category: "colors",
   },
-  //   {
-  //     id: "3",
-  //     french: "vert",
-  //     transcription: "[ vɛʀ ]",
-  //     english: "green",
-  //     category: "colors",
-  //   },
-  //   {
-  //     id: "4",
-  //     french: "blanc",
-  //     transcription: "[ blɑ̃ ]",
-  //     english: "white",
-  //     category: "colors",
-  //   },
-  //   {
-  //     id: "5",
-  //     french: "noir",
-  //     transcription: "[ nwaʀ ]",
-  //     english: "black",
-  //     category: "colors",
-  //   },
-  //   {
-  //     id: "6",
-  //     french: "jaune",
-  //     transcription: "[ ʒon ]",
-  //     english: "yellow",
-  //     category: "colors",
-  //   },
-  //   {
-  //     id: "7",
-  //     french: "bleu",
-  //     transcription: "[ blo͝o ]",
-  //     english: "blue",
-  //     category: "colors",
-  //   },
+  {
+    id: "3",
+    french: "vert",
+    transcription: "[ vɛʀ ]",
+    english: "green",
+    category: "colors",
+  },
+  {
+    id: "4",
+    french: "blanc",
+    transcription: "[ blɑ̃ ]",
+    english: "white",
+    category: "colors",
+  },
+  {
+    id: "5",
+    french: "noir",
+    transcription: "[ nwaʀ ]",
+    english: "black",
+    category: "colors",
+  },
+  {
+    id: "6",
+    french: "jaune",
+    transcription: "[ ʒon ]",
+    english: "yellow",
+    category: "colors",
+  },
+  {
+    id: "7",
+    french: "bleu",
+    transcription: "[ blo͝o ]",
+    english: "blue",
+    category: "colors",
+  },
 ];
 
 function Card(props) {
@@ -81,14 +81,17 @@ function Flashcard() {
 
   function handleIncrementCount() {
     setCount(count + 1);
-    if (count === words.length) {
+    console.log(count);
+    console.log(words.length);
+    if (count + 2 > words.length) {
       return setCount(0);
     }
   }
   function handleDecrementCount() {
     setCount(count - 1);
-    if (count === 0) {
-      setCount(words.length);
+    if (count < 1) {
+      console.log(`yey`);
+      setCount(words.length - 1);
     }
   }
   return (
@@ -98,18 +101,18 @@ function Flashcard() {
       </button>
 
       <div className="containerFlashcard">
-        {words.map((word) => (
-          <Card
-            key={word.id}
-            category={word.category}
-            french={word.french}
-            transcription={word.transcription}
-            english={word.english}
-          />
-        ))}
+        {/* {words.map((word) => ( */}
+        <Card
+          key={words[count].id}
+          category={words[count].category}
+          french={words[count].french}
+          transcription={words[count].transcription}
+          english={words[count].english}
+        />
+        {/* ))} */}
 
         <p>
-          {count}/{words.length}
+          {words[count].id}/{words.length}
         </p>
       </div>
       <button className="sliderBtn" onClick={handleIncrementCount}>
