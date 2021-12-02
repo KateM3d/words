@@ -1,6 +1,12 @@
-.containerCards {
-    display: flex;
-    flex-direction: row;
+.container {
+    &Cards {
+        display: flex;
+        flex-direction: row;
+    }
+    &Flashcard {
+        display: flex;
+        flex-direction: row;
+    }
 }
 
 .flashcardBody {
