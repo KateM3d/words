@@ -29,16 +29,11 @@ const AreaItem = () => {
 };
 
 function DropArea() {
-  const [clickLeft, setClickLeft] = useState(0);
-  const [clickRight, setClickRight] = useState(0);
   return (
     <div className="containerDropArea">
-      <button onClick={() => setClickLeft(clickLeft - 1)}>left</button>
       <AreaItem />
-      <button onClick={() => setClickRight(clickRight - 1)}>right</button>
-      <button onClick={() => setClickLeft(clickLeft - 1)}>left</button>
+
       <AreaItem />
-      <button onClick={() => setClickRight(clickRight - 1)}>right</button>
     </div>
   );
 }

@@ -71,28 +71,28 @@ const words = [
 ];
 
 //category topics json
-const categoryTopics = [
-  {
-    id: "001",
-    category: "Travel",
-    image: travel,
-  },
-  {
-    id: "002",
-    category: "Colors",
-    image: colors,
-  },
-  {
-    id: "003",
-    category: "Sport",
-    image: sport,
-  },
-  {
-    id: "004",
-    category: "Create Your Own Category",
-    image: fun,
-  },
-];
+// const categoryTopics = [
+//   {
+//     id: "001",
+//     category: "Travel",
+//     image: travel,
+//   },
+//   {
+//     id: "002",
+//     category: "Colors",
+//     image: colors,
+//   },
+//   {
+//     id: "003",
+//     category: "Sport",
+//     image: sport,
+//   },
+//   {
+//     id: "004",
+//     category: "Create Your Own Category",
+//     image: fun,
+//   },
+// ];
 //decisions buttons
 const decisions = [
   {
@@ -106,27 +106,27 @@ const decisions = [
 ];
 
 //Type of exercise section json
-const exerciseTypes = [
-  {
-    key: 31,
-    type: "English TO French",
-    typeImageOne: english,
-    typeImageTwo: french,
-  },
-  {
-    key: 32,
-    type: "French TO English",
-    typeImageOne: french,
-    typeImageTwo: english,
-  },
-];
+// const exerciseTypes = [
+//   {
+//     key: 31,
+//     type: "English TO French",
+//     typeImageOne: english,
+//     typeImageTwo: french,
+//   },
+//   {
+//     key: 32,
+//     type: "French TO English",
+//     typeImageOne: french,
+//     typeImageTwo: english,
+//   },
+// ];
 
 //table for create your own category json
 
 function App() {
   return (
     <div className="App">
-      <Header />
+      {/* <Header />
       <WelcomingNote />
       <div className="category">
         {categoryTopics.map((topic) => (
@@ -144,7 +144,7 @@ function App() {
             />
           ))}
         </div>
-      </div>
+      </div> */}
       <div className="container">
         {words.map((word) => (
           <Flashcard
@@ -153,6 +153,7 @@ function App() {
             transcription={word.transcription}
             english={word.english}
             category={word.category}
+            length={words.length}
           />
         ))}
       </div>
@@ -162,8 +163,8 @@ function App() {
           <Button key={decision.key} status={decision.status} />
         ))}
       </div>
-      <CreateTopicTable />
-      <Footer />
+      {/* <CreateTopicTable />
+      <Footer /> */}
     </div>
   );
 }
