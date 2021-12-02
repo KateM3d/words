@@ -1,45 +1,13 @@
-.flashcardBody {
-    position: absolute;
-    margin-top: 5%;
-    width: 350px;
-    height: 250px;
-    background-color: #fff;
-    border-radius: 20px;
-    border: 1px solid #04132d;
-    box-shadow: 2px 7px 25px 15px #6b788f;
-    text-align: center;
+.containerCards {
+    display: flex;
+    flex-direction: row;
+}
+
+.cardInner {
+    display: flex;
+    flex-direction: column;
     justify-content: center;
-    &:hover {
-        cursor: pointer;
-    }
-}
-
-.word {
-    &_category {
-        margin-top: 30px;
-        color: #C9CCD5;
-    }
-    &_french {
-        color: #053742;
-        font-size: 30px;
-    }
-    &_transcription {
-        color: #053742;
-        font-size: 20px;
-    }
-    &_translation {
-        color: #053742;
-        font-size: 20px;
-    }
-}
-
-.translationBtn {
-    border: 1px solid #247ed0;
-    border-radius: 10px;
-    color: #3f90db;
-    background-color: #04132d;
-    width: 150px;
-    &:hover {
-        cursor: pointer;
-    }
+    border: 2px solid blue;
+    margin: auto;
+    text-align: center;
 }
