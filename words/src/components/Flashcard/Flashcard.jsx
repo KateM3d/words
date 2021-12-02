@@ -53,7 +53,7 @@ const words = [
   },
 ];
 
-function Card() {
+function Card(props) {
   const [showTranslation, setShowTranslation] = useState(false);
 
   function handleTranslationClick() {
@@ -61,19 +61,17 @@ function Card() {
   }
   return (
     <div className="containerCards">
-      {words.map((word) => (
-        <div className="flashcardBody" key={word.id}>
-          <p className="word_category">{word.category}</p>
-          <p className="word_french">{word.french}</p>
-          <p className="word_transcription">{word.transcription}</p>
-          <p
-            className={`word_french ${!showTranslation && "translationBtn"}`}
-            onClick={handleTranslationClick}
-          >
-            {!showTranslation ? "translation" : `${word.english}`}
-          </p>
-        </div>
-      ))}
+      <div className="flashcardBody">
+        <p className="word_category">{props.category}</p>
+        <p className="word_french">{props.french}</p>
+        <p className="word_transcription">{props.transcription}</p>
+        <p
+          className={`word_french ${!showTranslation && "translationBtn"}`}
+          onClick={handleTranslationClick}
+        >
+          {!showTranslation ? "translation" : `${props.english}`}
+        </p>
+      </div>
     </div>
   );
 }
@@ -81,7 +79,15 @@ function Card() {
 function Flashcard() {
   return (
     <div className="containerFlashcard">
-      <Card />
+      {words.map((word) => (
+        <Card
+          key={word.id}
+          category={word.category}
+          french={word.french}
+          transcription={word.transcription}
+          english={word.english}
+        />
+      ))}
     </div>
   );
 }
