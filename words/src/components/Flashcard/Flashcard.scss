@@ -5,6 +5,9 @@
 
 .flashcardBody {
     // position: absolute;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
     margin-top: 5%;
     width: 350px;
     height: 250px;
@@ -13,7 +16,6 @@
     border: 1px solid #04132d;
     box-shadow: 2px 7px 25px 15px #6b788f;
     text-align: center;
-    justify-content: center;
     &:hover {
         cursor: pointer;
     }
