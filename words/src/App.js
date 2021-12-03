@@ -1,4 +1,6 @@
 import React from "react";
+import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
+import image from "./404.jpg";
 import Header from "./components/Header/Header";
 import WelcomingNote from "./components/WelcomingNote/WelcomingNote";
 import Topic from "./components/Topic/Topic";
@@ -12,23 +14,49 @@ import "./App.scss";
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <WelcomingNote />
-      <div className="containerRow">
-        <Topic />
-      </div>
-      <div className="containerRow">
-        <ExerciseCard />
-      </div>
-      <Flashcard />
-      <div className="containerRow">
-        <Button status="know" />
-        <Button />
-      </div>
-      <Table />
-      <Footer />
-    </div>
+    <BrowserRouter>
+      <>
+        <div className="App">
+          <Header />
+
+          <Switch>
+            <Route exact path="/">
+              <WelcomingNote />
+              <Table />
+            </Route>
+
+            <Route path="/category">
+              <div className="containerRow">
+                <Topic />
+              </div>
+              <Flashcard />
+              <div className="containerRow">
+                <Button status="know" />
+                <Button />
+              </div>
+            </Route>
+
+            <Route path="/exercise">
+              <div className="containerRow">
+                <ExerciseCard />
+              </div>
+            </Route>
+
+            <Route path="/notes">
+              <Table />
+            </Route>
+
+            <Route>
+              <div className="mistake">
+                <img className="mistakeImg" src={image} alt="not found" />
+              </div>
+            </Route>
+          </Switch>
+        </div>
+
+        <Footer />
+      </>
+    </BrowserRouter>
   );
 }
 
