@@ -33,7 +33,7 @@ function Topic() {
   return (
     <>
       {categoryTopics.map((topic) => (
-        <div className="flashcardBody">
+        <div key={topic.id} className="flashcardBody">
           <p className={`topicCategory`}>{topic.category}</p>
           <img className="topicImage" src={topic.image} alt={topic.category} />
         </div>
