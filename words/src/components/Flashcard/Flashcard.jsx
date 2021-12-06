@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Flashcard.scss";
 
-const words = [
+const wordsColors = [
   {
     id: "1",
     french: "rouge",
@@ -53,6 +53,40 @@ const words = [
   },
 ];
 
+const wordsSport = [
+  {
+    id: "1",
+    french: "le hockey",
+    transcription: "[ ˈɔkɛ ]",
+    english: "hockey",
+    category: "sport",
+  },
+  {
+    id: "2",
+    french: "football",
+    transcription: "[ futbol ]",
+    english: "soccer",
+    category: "sport",
+  },
+];
+
+const wordsTravel = [
+  {
+    id: "1",
+    french: "avion",
+    transcription: "[ avjɔ̃ ]",
+    english: "plane",
+    category: "travel",
+  },
+  {
+    id: "2",
+    french: "prendre des vacances",
+    transcription: "[ vakɑ̃s ]",
+    english: "to take a vacation",
+    category: "travel",
+  },
+];
+
 function Card(props) {
   const [showTranslation, setShowTranslation] = useState(false);
 
@@ -81,19 +115,18 @@ function Flashcard() {
 
   function handleIncrementCount() {
     setCount(count + 1);
-    console.log(count);
-    console.log(words.length);
-    if (count + 2 > words.length) {
+
+    if (count + 2 > wordsColors.length) {
       return setCount(0);
     }
   }
-  function handleDecrementCount() {
-    setCount(count - 1);
-    if (count < 1) {
-      console.log(`yey`);
-      setCount(words.length - 1);
+  const handleDecrementCount = () => {
+    let newCount = count - 1;
+    if (newCount < 1) {
+      newCount = wordsColors.length - 1;
     }
-  }
+    setCount(newCount);
+  };
   return (
     <div className="containerFlashcardCount">
       <button className="sliderBtn" onClick={handleDecrementCount}>
@@ -103,16 +136,16 @@ function Flashcard() {
       <div className="containerFlashcard">
         {/* {words.map((word) => ( */}
         <Card
-          key={words[count].id}
-          category={words[count].category}
-          french={words[count].french}
-          transcription={words[count].transcription}
-          english={words[count].english}
+          key={wordsColors[count].id}
+          category={wordsColors[count].category}
+          french={wordsColors[count].french}
+          transcription={wordsColors[count].transcription}
+          english={wordsColors[count].english}
         />
         {/* ))} */}
 
         <p>
-          {words[count].id}/{words.length}
+          {wordsColors[count].id}/{wordsColors.length}
         </p>
       </div>
       <button className="sliderBtn" onClick={handleIncrementCount}>
