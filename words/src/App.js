@@ -3,12 +3,11 @@ import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 import image from "./404.jpg";
 import Header from "./components/Header/Header";
 import WelcomingNote from "./components/WelcomingNote/WelcomingNote";
-import Topic from "./components/Topic/Topic";
 import ExerciseCard from "./components/ExerciseCard/ExerciseCard";
-import Flashcard from "./components/Flashcard/Flashcard";
 import Table from "./components/Table/Table";
-import Button from "./components/Button/Button";
+
 import Footer from "./components/Footer/Footer";
+import CategoryContainer from "./components/CategoryContainer/CategoryContainer";
 
 import "./App.scss";
 
@@ -26,14 +25,16 @@ function App() {
             </Route>
 
             <Route path="/category">
-              <div className="containerRow">
-                <Topic />
+              {/* <div className="containerRow"> */}
+              {/* <Topic />
               </div>
               <Flashcard />
               <div className="containerRow">
                 <Button status="know" />
                 <Button />
-              </div>
+              </div> */}
+
+              <CategoryContainer />
             </Route>
 
             <Route path="/exercise">
