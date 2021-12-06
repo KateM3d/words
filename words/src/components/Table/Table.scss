@@ -43,7 +43,7 @@ $fontColor: #3297da;
     background-color: #fff;
     &Btn {
         display: flex;
-        flex-direction: row;
+        flex-flow: row wrap;
         justify-content: flex-end;
     }
 }

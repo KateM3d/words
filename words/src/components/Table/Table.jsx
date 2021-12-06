@@ -1,5 +1,4 @@
 import React from "react";
-// import "./CreateTopicTable.scss";
 import TableRow from "./TableRow";
 import TableHeader from "./TableHeader";
 

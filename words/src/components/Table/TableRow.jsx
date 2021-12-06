@@ -1,11 +1,11 @@
 import React from "react";
 import { useState } from "react";
-import "./CreateTopicTable.scss";
+import "./Table.scss";
 
 function TableRow(props) {
   const [btnEdit, setBtnEdit] = useState(false);
 
-  const modifyEdit = () => {
+  const handleModifyClick = () => {
     setBtnEdit(!btnEdit);
   };
   return (
@@ -39,10 +39,10 @@ function TableRow(props) {
       )}
 
       <div className="tableHeader row rowBtn">
-        <button onClick={modifyEdit} className="tableBtn">
+        <button onClick={handleModifyClick} className="tableBtn">
           {btnEdit === true ? "Delete Edit" : "Edit"}
         </button>
-        <button className="tableBtn">Delete</button>git status
+        <button className="tableBtn">Delete</button>
         {props.editMode ? null : <button className="tableBtn">Save</button>}
       </div>
     </div>

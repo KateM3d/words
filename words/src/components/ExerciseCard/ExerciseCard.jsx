@@ -2,29 +2,50 @@ import React from "react";
 import "../Flashcard/Flashcard.scss";
 import "./ExerciseCard.scss";
 import rightArrow from "./right-arrow.png";
+import english from "./english.png";
+import french from "./french.png";
 
-function ExerciseCard(props) {
+const exerciseTypes = [
+  {
+    key: 31,
+    type: "English TO French",
+    typeImageOne: english,
+    typeImageTwo: french,
+  },
+  {
+    key: 32,
+    type: "French TO English",
+    typeImageOne: french,
+    typeImageTwo: english,
+  },
+];
+
+function ExerciseCard() {
   return (
-    <div className="flashcardBody nonAbsolute">
-      <p className="exerciseType">{props.type}</p>
-      <div className="exerciseTypeImageContainer">
-        <img
-          className="exerciseTypeImage"
-          src={props.typeImageOne}
-          alt={props.type}
-        />
-        <img
-          className="exerciseTypeImageArrow"
-          src={rightArrow}
-          alt={props.type}
-        />
-        <img
-          className="exerciseTypeImage"
-          src={props.typeImageTwo}
-          alt={props.type}
-        />
-      </div>
-    </div>
+    <>
+      {exerciseTypes.map((ex) => (
+        <div key={ex.key} className="flashcardBody">
+          <p className="exerciseType">{ex.type}</p>
+          <div className="exerciseTypeImageContainer">
+            <img
+              className="exerciseTypeImage"
+              src={ex.typeImageOne}
+              alt={ex.type}
+            />
+            <img
+              className="exerciseTypeImageArrow"
+              src={rightArrow}
+              alt={ex.type}
+            />
+            <img
+              className="exerciseTypeImage"
+              src={ex.typeImageTwo}
+              alt={ex.type}
+            />
+          </div>
+        </div>
+      ))}
+    </>
   );
 }
 

@@ -1,5 +1,5 @@
 import React from "react";
-import "./CreateTopicTable.scss";
+import "./Table.scss";
 
 function TableHeader() {
   return (

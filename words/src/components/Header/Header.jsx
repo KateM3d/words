@@ -1,16 +1,25 @@
 import React from "react";
 import logo from "./logo.jpg";
+import { Link } from "react-router-dom";
 import "./Header.scss";
 
 function Header() {
   return (
     <div className="header">
       <ul className="headerMenu">
-        <img src={logo} alt={logo} className="logo" />
+        <Link to="/">
+          <img src={logo} alt={logo} className="logo" />
+        </Link>
         <p className="menuSlogan">Learn French Today...</p>
-        <li className="menu">Category</li>
-        <li className="menu">Exercise</li>
-        <li className="menu">Notes</li>
+        <Link to="/category">
+          <li className="menu">Category</li>
+        </Link>
+        <Link to="/exercise">
+          <li className="menu">Exercise</li>
+        </Link>
+        <Link to="/notes">
+          <li className="menu">Notes</li>
+        </Link>
       </ul>
     </div>
   );

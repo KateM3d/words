@@ -1,5 +1,24 @@
+.container {
+    &Cards {
+        display: flex;
+        flex-direction: row;
+    }
+    &Flashcard {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        margin: 50px;
+        &Count {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}
+
 .flashcardBody {
-    position: absolute;
+    // position: absolute;
     margin-top: 5%;
     width: 350px;
     height: 250px;
@@ -8,7 +27,6 @@
     border: 1px solid #04132d;
     box-shadow: 2px 7px 25px 15px #6b788f;
     text-align: center;
-    justify-content: center;
     &:hover {
         cursor: pointer;
     }
@@ -21,24 +39,34 @@
     }
     &_french {
         color: #053742;
-        font-size: 30px;
+        font-size: 25px;
     }
     &_transcription {
-        color: #053742;
-        font-size: 20px;
-    }
-    &_translation {
         color: #053742;
         font-size: 20px;
     }
 }
 
 .translationBtn {
+    margin: auto;
     border: 1px solid #247ed0;
     border-radius: 10px;
     color: #3f90db;
     background-color: #04132d;
     width: 150px;
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.sliderBtn {
+    border: 1px solid #247ed0;
+    border-radius: 10px;
+    color: #3f90db;
+    background-color: #04132d;
+    height: 80px;
+    width: 100px;
+    font-size: 20px;
     &:hover {
         cursor: pointer;
     }
