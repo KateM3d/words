@@ -24,7 +24,7 @@ function ExerciseCard() {
   return (
     <>
       {exerciseTypes.map((ex) => (
-        <div className="flashcardBody">
+        <div key={ex.key} className="flashcardBody">
           <p className="exerciseType">{ex.type}</p>
           <div className="exerciseTypeImageContainer">
             <img
