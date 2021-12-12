@@ -1,5 +1,6 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import "./Flashcard.scss";
+import Card from "../Card/Card";
 
 const wordsColors = [
   {
@@ -88,33 +89,6 @@ const wordsColors = [
 // ];
 
 // let words=[wordsColors,wordsSport,wordsTravel]
-
-function Card(props) {
-  const [showTranslation, setShowTranslation] = useState(false);
-  const buttonRef = useRef();
-
-  function handleTranslationClick() {
-    setShowTranslation(!showTranslation);
-    console.log("focus here");
-  }
-
-  return (
-    <div className="containerCards">
-      <div className="flashcardBody">
-        <p className="word_category">{props.category}</p>
-        <p className="word_french">{props.french}</p>
-        <p className="word_transcription">{props.transcription}</p>
-        <p
-          ref={buttonRef}
-          className={`word_french ${!showTranslation && "translationBtn"}`}
-          onClick={handleTranslationClick}
-        >
-          {!showTranslation ? "translation" : `${props.english}`}
-        </p>
-      </div>
-    </div>
-  );
-}
 
 function Flashcard() {
   const [count, setCount] = useState(0);
