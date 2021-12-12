@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import "./Flashcard.scss";
 
 const wordsColors = [
@@ -53,46 +53,51 @@ const wordsColors = [
   },
 ];
 
-const wordsSport = [
-  {
-    id: "1",
-    french: "le hockey",
-    transcription: "[ ˈɔkɛ ]",
-    english: "hockey",
-    category: "sport",
-  },
-  {
-    id: "2",
-    french: "football",
-    transcription: "[ futbol ]",
-    english: "soccer",
-    category: "sport",
-  },
-];
+// const wordsSport = [
+//   {
+//     id: "1",
+//     french: "le hockey",
+//     transcription: "[ ˈɔkɛ ]",
+//     english: "hockey",
+//     category: "sport",
+//   },
+//   {
+//     id: "2",
+//     french: "football",
+//     transcription: "[ futbol ]",
+//     english: "soccer",
+//     category: "sport",
+//   },
+// ];
 
-const wordsTravel = [
-  {
-    id: "1",
-    french: "avion",
-    transcription: "[ avjɔ̃ ]",
-    english: "plane",
-    category: "travel",
-  },
-  {
-    id: "2",
-    french: "prendre des vacances",
-    transcription: "[ vakɑ̃s ]",
-    english: "to take a vacation",
-    category: "travel",
-  },
-];
+// const wordsTravel = [
+//   {
+//     id: "1",
+//     french: "avion",
+//     transcription: "[ avjɔ̃ ]",
+//     english: "plane",
+//     category: "travel",
+//   },
+//   {
+//     id: "2",
+//     french: "prendre des vacances",
+//     transcription: "[ vakɑ̃s ]",
+//     english: "to take a vacation",
+//     category: "travel",
+//   },
+// ];
+
+// let words=[wordsColors,wordsSport,wordsTravel]
 
 function Card(props) {
   const [showTranslation, setShowTranslation] = useState(false);
+  const buttonRef = useRef();
 
   function handleTranslationClick() {
     setShowTranslation(!showTranslation);
+    console.log("focus here");
   }
+
   return (
     <div className="containerCards">
       <div className="flashcardBody">
@@ -100,6 +105,7 @@ function Card(props) {
         <p className="word_french">{props.french}</p>
         <p className="word_transcription">{props.transcription}</p>
         <p
+          ref={buttonRef}
           className={`word_french ${!showTranslation && "translationBtn"}`}
           onClick={handleTranslationClick}
         >
