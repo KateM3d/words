@@ -92,6 +92,7 @@ const wordsColors = [
 
 function Flashcard() {
   const [count, setCount] = useState(0);
+  const [isLearned, setIsLearned] = useState(0);
 
   function handleIncrementCount() {
     setCount(count + 1);
@@ -107,6 +108,10 @@ function Flashcard() {
     }
     setCount(newCount);
   };
+
+  function handleLearnedChange() {
+    setIsLearned((prevLearned) => prevLearned + 1);
+  }
   return (
     <div className="containerFlashcardCount">
       <button className="sliderBtn" onClick={handleDecrementCount}>
@@ -116,6 +121,7 @@ function Flashcard() {
       <div className="containerFlashcard">
         {/* {words.map((word) => ( */}
         <Card
+          onClick={handleLearnedChange}
           key={wordsColors[count].id}
           category={wordsColors[count].category}
           french={wordsColors[count].french}
@@ -127,6 +133,7 @@ function Flashcard() {
         <p>
           {wordsColors[count].id}/{wordsColors.length}
         </p>
+        <p onWordLearned={handleLearnedChange}>Total Learned: {isLearned}</p>
       </div>
       <button className="sliderBtn" onClick={handleIncrementCount}>
         Next
