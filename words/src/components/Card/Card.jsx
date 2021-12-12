@@ -1,14 +1,11 @@
 import React, { useState, useRef, useEffect } from "react";
-
 export default function Card(props) {
   const [showTranslation, setShowTranslation] = useState(false);
   const btnRef = useRef();
 
   useEffect(() => {
     btnRef.current && btnRef.current.focus();
-    console.log("focus");
-    console.log(btnRef.current);
-  });
+  }, []);
 
   function handleTranslationClick() {
     setShowTranslation(!showTranslation);

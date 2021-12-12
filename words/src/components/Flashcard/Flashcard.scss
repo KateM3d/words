@@ -40,6 +40,9 @@
     &_french {
         color: #053742;
         font-size: 25px;
+        &:focus {
+            border: 2px solid red;
+        }
     }
     &_transcription {
         color: #053742;
