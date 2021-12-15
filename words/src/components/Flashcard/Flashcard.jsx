@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Flashcard.scss";
+import Card from "../Card/Card";
 
 const wordsColors = [
   {
@@ -53,65 +54,45 @@ const wordsColors = [
   },
 ];
 
-const wordsSport = [
-  {
-    id: "1",
-    french: "le hockey",
-    transcription: "[ ˈɔkɛ ]",
-    english: "hockey",
-    category: "sport",
-  },
-  {
-    id: "2",
-    french: "football",
-    transcription: "[ futbol ]",
-    english: "soccer",
-    category: "sport",
-  },
-];
+// const wordsSport = [
+//   {
+//     id: "1",
+//     french: "le hockey",
+//     transcription: "[ ˈɔkɛ ]",
+//     english: "hockey",
+//     category: "sport",
+//   },
+//   {
+//     id: "2",
+//     french: "football",
+//     transcription: "[ futbol ]",
+//     english: "soccer",
+//     category: "sport",
+//   },
+// ];
 
-const wordsTravel = [
-  {
-    id: "1",
-    french: "avion",
-    transcription: "[ avjɔ̃ ]",
-    english: "plane",
-    category: "travel",
-  },
-  {
-    id: "2",
-    french: "prendre des vacances",
-    transcription: "[ vakɑ̃s ]",
-    english: "to take a vacation",
-    category: "travel",
-  },
-];
+// const wordsTravel = [
+//   {
+//     id: "1",
+//     french: "avion",
+//     transcription: "[ avjɔ̃ ]",
+//     english: "plane",
+//     category: "travel",
+//   },
+//   {
+//     id: "2",
+//     french: "prendre des vacances",
+//     transcription: "[ vakɑ̃s ]",
+//     english: "to take a vacation",
+//     category: "travel",
+//   },
+// ];
 
-function Card(props) {
-  const [showTranslation, setShowTranslation] = useState(false);
-
-  function handleTranslationClick() {
-    setShowTranslation(!showTranslation);
-  }
-  return (
-    <div className="containerCards">
-      <div className="flashcardBody">
-        <p className="word_category">{props.category}</p>
-        <p className="word_french">{props.french}</p>
-        <p className="word_transcription">{props.transcription}</p>
-        <p
-          className={`word_french ${!showTranslation && "translationBtn"}`}
-          onClick={handleTranslationClick}
-        >
-          {!showTranslation ? "translation" : `${props.english}`}
-        </p>
-      </div>
-    </div>
-  );
-}
+// let words=[wordsColors,wordsSport,wordsTravel]
 
 function Flashcard() {
   const [count, setCount] = useState(0);
+  const [isLearned, setIsLearned] = useState(0);
 
   function handleIncrementCount() {
     setCount(count + 1);
@@ -127,6 +108,10 @@ function Flashcard() {
     }
     setCount(newCount);
   };
+
+  function handleLearnedChange() {
+    setIsLearned((prevLearned) => prevLearned + 1);
+  }
   return (
     <div className="containerFlashcardCount">
       <button className="sliderBtn" onClick={handleDecrementCount}>
@@ -134,19 +119,19 @@ function Flashcard() {
       </button>
 
       <div className="containerFlashcard">
-        {/* {words.map((word) => ( */}
         <Card
+          onClick={handleLearnedChange}
           key={wordsColors[count].id}
           category={wordsColors[count].category}
           french={wordsColors[count].french}
           transcription={wordsColors[count].transcription}
           english={wordsColors[count].english}
         />
-        {/* ))} */}
 
         <p>
           {wordsColors[count].id}/{wordsColors.length}
         </p>
+        <p onWordLearned={handleLearnedChange}>Total Learned: {isLearned}</p>
       </div>
       <button className="sliderBtn" onClick={handleIncrementCount}>
         Next
