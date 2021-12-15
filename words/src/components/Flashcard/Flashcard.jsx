@@ -119,7 +119,6 @@ function Flashcard() {
       </button>
 
       <div className="containerFlashcard">
-        {/* {words.map((word) => ( */}
         <Card
           onClick={handleLearnedChange}
           key={wordsColors[count].id}
@@ -128,7 +127,6 @@ function Flashcard() {
           transcription={wordsColors[count].transcription}
           english={wordsColors[count].english}
         />
-        {/* ))} */}
 
         <p>
           {wordsColors[count].id}/{wordsColors.length}
