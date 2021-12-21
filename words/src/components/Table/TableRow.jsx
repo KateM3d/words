@@ -4,6 +4,11 @@ import "./Table.scss";
 
 function TableRow(props) {
   const [btnEdit, setBtnEdit] = useState(false);
+  const [changeWord, setChangeWord] = useState(props.word);
+  const [changeTranscription, setChangeTranscription] = useState(
+    props.transcription
+  );
+  const [changeTranslation, setChangeTranslation] = useState(props.translation);
 
   const handleModifyClick = () => {
     setBtnEdit(!btnEdit);
@@ -13,20 +18,27 @@ function TableRow(props) {
       {btnEdit === true ? (
         <>
           <div className="tableHeader row">
-            <input className="input" type="text" defaultValue={props.word} />
-          </div>
-          <div className="tableHeader row">
             <input
-              className="input"
+              className={`input ${changeWord === "" && "red"}`}
               type="text"
-              defaultValue={props.transcription}
+              value={changeWord}
+              onChange={(e) => setChangeWord(e.target.value)}
             />
           </div>
           <div className="tableHeader row">
             <input
-              className="input"
+              className={`input ${changeTranscription === "" && "red"}`}
               type="text"
-              defaultValue={props.translation}
+              value={changeTranscription}
+              onChange={(event) => setChangeTranscription(event.target.value)}
+            />
+          </div>
+          <div className="tableHeader row">
+            <input
+              className={`input ${changeTranslation === "" && "red"}`}
+              type="text"
+              value={changeTranslation}
+              onChange={(event) => setChangeTranslation(event.target.value)}
             />
           </div>
         </>
@@ -43,7 +55,16 @@ function TableRow(props) {
           {btnEdit === true ? "Delete Edit" : "Edit"}
         </button>
         <button className="tableBtn">Delete</button>
-        {props.editMode ? null : <button className="tableBtn">Save</button>}
+        <button
+          className={`tableBtn ${
+            (changeWord === "" ||
+              changeTranslation === "" ||
+              changeTranscription === "") &&
+            "disable"
+          }`}
+        >
+          Save
+        </button>
       </div>
     </div>
   );
