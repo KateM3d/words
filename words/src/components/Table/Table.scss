@@ -52,3 +52,12 @@ $fontColor: #3297da;
     color: black;
     font-size: 18px;
 }
+
+.red {
+    border: 2px solid red;
+}
+
+.disable {
+    background-color: grey;
+    cursor: not-allowed;
+}
