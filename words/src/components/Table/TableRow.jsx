@@ -13,8 +13,12 @@ function TableRow(props) {
   const handleModifyClick = () => {
     setBtnEdit(!btnEdit);
   };
+
+  function handleFormSubmit(e) {
+    e.preventDefault();
+  }
   return (
-    <div className="tableHeaderContainer">
+    <form className="tableHeaderContainer" onSubmit={handleFormSubmit}>
       {btnEdit === true ? (
         <>
           <div className="tableHeader row">
@@ -51,11 +55,14 @@ function TableRow(props) {
       )}
 
       <div className="tableHeader row rowBtn">
-        <button onClick={handleModifyClick} className="tableBtn">
+        <button type="submit" onClick={handleModifyClick} className="tableBtn">
           {btnEdit === true ? "Delete Edit" : "Edit"}
         </button>
-        <button className="tableBtn">Delete</button>
+        <button type="submit" className="tableBtn">
+          Delete
+        </button>
         <button
+          type="submit"
           className={`tableBtn ${
             (changeWord === "" ||
               changeTranslation === "" ||
@@ -66,7 +73,7 @@ function TableRow(props) {
           Save
         </button>
       </div>
-    </div>
+    </form>
   );
 }
 
