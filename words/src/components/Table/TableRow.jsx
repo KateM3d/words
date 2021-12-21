@@ -17,6 +17,27 @@ function TableRow(props) {
   function handleFormSubmit(e) {
     e.preventDefault();
   }
+  function handleInputSave() {
+    let inputInnerWord = changeWord[0].toUpperCase() + changeWord.slice(1);
+    let inputInnerTransl =
+      changeTranslation[0].toUpperCase() + changeTranslation.slice(1);
+
+    let correctTranscription = changeTranscription.includes("x");
+
+    if (
+      changeWord !== inputInnerWord ||
+      changeTranslation !== inputInnerTransl ||
+      correctTranscription !== true
+    ) {
+      alert("please check your spelling");
+    } else {
+      changeWord !== props.word && console.log(changeWord);
+      changeTranscription !== props.transcription &&
+        console.log(changeTranscription);
+      changeTranslation !== props.translation && console.log(changeTranslation);
+      setBtnEdit(!btnEdit);
+    }
+  }
   return (
     <form className="tableHeaderContainer" onSubmit={handleFormSubmit}>
       {btnEdit === true ? (
@@ -62,6 +83,7 @@ function TableRow(props) {
           Delete
         </button>
         <button
+          onClick={handleInputSave}
           type="submit"
           className={`tableBtn ${
             (changeWord === "" ||
