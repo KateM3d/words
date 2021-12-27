@@ -17,17 +17,20 @@ function TableRow(props) {
   function handleFormSubmit(e) {
     e.preventDefault();
   }
+
+  function onlyLatinCharacters(value) {
+    return /^[a-zA-Z]+$/.test(value);
+  }
   function handleInputSave() {
     let inputInnerWord = changeWord[0].toUpperCase() + changeWord.slice(1);
     let inputInnerTransl =
       changeTranslation[0].toUpperCase() + changeTranslation.slice(1);
-
     let correctTranscription = changeTranscription.includes("x");
 
     if (
-      changeWord !== inputInnerWord ||
-      changeTranslation !== inputInnerTransl ||
-      correctTranscription !== true
+      !onlyLatinCharacters(inputInnerWord) ||
+      !onlyLatinCharacters(inputInnerTransl) ||
+      !onlyLatinCharacters(correctTranscription)
     ) {
       alert("please check your spelling");
     } else {
