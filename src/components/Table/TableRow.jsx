@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import "./Table.scss";
+import { useAPI } from "../../Context/apiContext";
 
 function TableRow(props) {
   const [btnEdit, setBtnEdit] = useState(false);
@@ -9,6 +10,11 @@ function TableRow(props) {
     props.transcription
   );
   const [changeTranslation, setChangeTranslation] = useState(props.translation);
+
+  const { words, isLoading, error, updateData } = useAPI();
+  const [value, setValue] = useState("");
+  if (error) return <h5>error...</h5>;
+  if (isLoading || !words.length) return <h5>is loading...</h5>;
 
   const handleModifyClick = () => {
     setBtnEdit(!btnEdit);
@@ -34,11 +40,11 @@ function TableRow(props) {
     ) {
       alert("please check your spelling");
     } else {
-      changeWord !== props.word && console.log(changeWord);
-      changeTranscription !== props.transcription &&
-        console.log(changeTranscription);
-      changeTranslation !== props.translation && console.log(changeTranslation);
+      changeWord !== props.word && updateData(value);
+      changeTranscription !== props.transcription && updateData(value);
+      changeTranslation !== props.translation && updateData(value);
       setBtnEdit(!btnEdit);
+      setValue("");
     }
   }
   return (
