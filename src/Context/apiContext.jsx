@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect, createContext } from "react";
 
-const APIContext = createContext();
+export const APIContext = createContext();
 
 export function APIContextProvider({ children }) {
   const [words, setWords] = useState([]);
@@ -23,9 +23,9 @@ export function APIContextProvider({ children }) {
           setIsLoading(false);
         })
         .catch((error) => {
-          console.log("error");
           setError(true);
           setIsLoading(false);
+          throw new Error("Oops! ...");
         });
     }
     fetchData();
@@ -43,12 +43,4 @@ export function APIContextProvider({ children }) {
       {children}
     </APIContext.Provider>
   );
-}
-
-export function useAPI() {
-  const context = useContext(APIContext);
-  if (context === undefined) {
-    throw new Error("Context must be used within a Provider");
-  }
-  return context;
 }
