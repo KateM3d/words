@@ -93,20 +93,20 @@ import { APIContext } from "../../Context/apiContext";
 
 function Flashcard() {
   const { words } = useContext(APIContext);
-  const [count, setCount] = useState(1);
+  const [count, setCount] = useState(0);
   const [isLearned, setIsLearned] = useState(0);
 
   function handleIncrementCount() {
     setCount(count + 1);
 
-    if (count + 1 > words.length) {
-      return setCount(1);
+    if (count + 2 > words.length) {
+      return setCount(0);
     }
   }
   const handleDecrementCount = () => {
     let newCount = count - 1;
-    if (newCount < 1) {
-      newCount = words.length;
+    if (newCount < 0) {
+      newCount = words.length - 1;
     }
     setCount(newCount);
   };
@@ -123,15 +123,15 @@ function Flashcard() {
       <div className="containerFlashcard">
         <Card
           onClick={handleLearnedChange}
-          key={words.id}
-          tags={words.tags}
-          russian={words.russian}
-          transcription={words.transcription}
-          english={words.english}
+          key={words[count]?.id}
+          tags={words[count]?.tags}
+          russian={words[count]?.russian}
+          transcription={words[count]?.transcription}
+          english={words[count]?.english}
         />
 
         <p>
-          {count}/{words.length}
+          {count + 1}/{words.length}
         </p>
         <p>Total Learned: {isLearned}</p>
       </div>
