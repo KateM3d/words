@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect, createContext } from "react";
+import React, { useState, useEffect, createContext } from "react";
 
 export const APIContext = createContext();
 
@@ -21,12 +21,12 @@ export function APIContextProvider({ children }) {
         .then((data) => {
           setWords(data);
           setIsLoading(false);
-        })
-        .catch((error) => {
-          setError(true);
-          setIsLoading(false);
-          throw new Error("Oops! ...");
         });
+      // .catch((error) => {
+      //   setError(true);
+      //   setIsLoading(false);
+      //   throw new Error("Oops! ...");
+      // });
     }
     fetchData();
   }, []);
