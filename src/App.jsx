@@ -7,14 +7,14 @@ import Table from "./components/Table/Table";
 import CategoryContainer from "./components/CategoryContainer/CategoryContainer";
 import Footer from "./components/Footer/Footer";
 import Loader from "./components/Loader/Loader";
-import { useAPI } from "./Context/apiContext";
+import { APIContext } from "./Context/apiContext";
 import "./App.scss";
 import image from "./404.jpg";
 
 function App() {
-  const { isLoading, error } = useContext(useAPI);
+  const { isLoading, error } = useContext(APIContext);
   if (error) {
-    return <p>{error.message}</p>;
+    return <p>{error?.message}</p>;
   }
 
   if (isLoading) {
