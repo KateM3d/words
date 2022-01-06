@@ -6,29 +6,29 @@ export function APIContextProvider({ children }) {
   const [words, setWords] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
-  const updateData = (value) => {
+  function updateData(value) {
     setWords([...words, { id: words.length + 1, english: value }]);
-  };
+  }
 
   useEffect(() => {
     setIsLoading(true);
     setError(false);
-    function fetchData() {
-      setIsLoading(true);
-      setError(false);
-      fetch("http://itgirlschool.justmakeit.ru/api/words")
-        .then((response) => response.json())
-        .then((data) => {
-          setWords(data);
-          setIsLoading(false);
-        });
-      // .catch((error) => {
-      //   setError(true);
-      //   setIsLoading(false);
-      //   throw new Error("Oops! ...");
-      // });
-    }
-    fetchData();
+    fetch("http://itgirlschool.justmakeit.ru/api/words")
+      .then((response) => {
+        if (response.status === 200) {
+          return response.json();
+        } else {
+          throw new Error("Oops!...");
+        }
+      })
+      .then((data) => {
+        setWords(data);
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        setIsLoading(false);
+        setError(error);
+      });
   }, []);
 
   return (

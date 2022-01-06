@@ -27,7 +27,7 @@ function TableRow(props) {
   function onlyLatinCharacters(value) {
     return /^[a-zA-Z]+$/.test(value);
   }
-  function handleInputSave() {
+  function handleInputSave(id) {
     if (
       !onlyLatinCharacters(changeWord) ||
       !onlyLatinCharacters(changeTranslation)
@@ -35,8 +35,8 @@ function TableRow(props) {
       alert("please check your spelling");
     } else {
       //
-      //
-      fetch(`http://itgirlschool.justmakeit.ru/api/words/update`, {
+      console.log(id);
+      fetch(`http://itgirlschool.justmakeit.ru/api/words/${id}/update`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json;charset=utf-8",
@@ -57,14 +57,28 @@ function TableRow(props) {
         })
 
         .then((data) => {
-          setChangeWord(changeWord);
-          setChangeTranslation(changeTranslation);
-          console.log(data);
-          console.log(changeWord);
-          console.log(changeTranslation);
+          alert("yes-yes");
+          console.log(words[id].english);
+
+          // if (
+          //   changeTranslation ===
+          //  console.log( words[words.findIndex((el) => el.english === changeTranslation)]
+          //     .english)
+          // )
+          //           {
+          //             alert("yes");
+          //             setChangeWord(words[id].russian);
+          //             setChangeTranslation(words[id].english);
+          //
+          //             console.log(changeWord);
+          //             console.log(changeTranslation);
+          //           } else {
+          //             alert("NO");
+          //           // }
         })
         .catch((err) => console.log(err));
     }
+
     setBtnEdit(!btnEdit);
     setValue("");
   }

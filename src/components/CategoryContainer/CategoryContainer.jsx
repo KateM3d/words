@@ -10,10 +10,10 @@ function CategoryContainer() {
         <Topic />
       </div>
       <Flashcard />
-      <div className="containerRow">
+      {/* <div className="containerRow">
         <Button status="know" />
         <Button />
-      </div>
+      </div> */}
     </>
   );
 }
