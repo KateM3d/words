@@ -1,17 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useState } from "react";
 import "./Table.scss";
-import { useAPI } from "../../Context/apiContext";
+import { APIContext } from "../../Context/apiContext";
 
 function TableRow(props) {
   const [btnEdit, setBtnEdit] = useState(false);
-  const [changeWord, setChangeWord] = useState(props.word);
+  const [changeWord, setChangeWord] = useState(props.english);
   const [changeTranscription, setChangeTranscription] = useState(
     props.transcription
   );
-  const [changeTranslation, setChangeTranslation] = useState(props.translation);
+  const [changeTranslation, setChangeTranslation] = useState(props.russian);
 
-  const { words, isLoading, error, updateData } = useAPI();
+  const { words, isLoading, error, updateData } = useContext(APIContext);
   const [value, setValue] = useState("");
   if (error) return <h5>error...</h5>;
   if (isLoading || !words.length) return <h5>is loading...</h5>;
@@ -28,21 +28,18 @@ function TableRow(props) {
     return /^[a-zA-Z]+$/.test(value);
   }
   function handleInputSave() {
-    let inputInnerWord = changeWord[0].toUpperCase() + changeWord.slice(1);
-    let inputInnerTransl =
-      changeTranslation[0].toUpperCase() + changeTranslation.slice(1);
-    let correctTranscription = changeTranscription.includes("x");
-
     if (
-      !onlyLatinCharacters(inputInnerWord) ||
-      !onlyLatinCharacters(inputInnerTransl) ||
-      !onlyLatinCharacters(correctTranscription)
+      !onlyLatinCharacters(changeWord) ||
+      !onlyLatinCharacters(changeTranslation)
     ) {
       alert("please check your spelling");
     } else {
-      changeWord !== props.word && updateData(value);
-      changeTranscription !== props.transcription && updateData(value);
-      changeTranslation !== props.translation && updateData(value);
+      setChangeWord(changeWord) && updateData(changeWord);
+      setChangeWord(changeTranslation) && updateData(changeTranslation);
+      console.log(changeWord);
+      console.log(changeTranslation);
+
+      // changeTranslation !== props.russian && updateData(changeTranslation);
       setBtnEdit(!btnEdit);
       setValue("");
     }
@@ -78,9 +75,9 @@ function TableRow(props) {
         </>
       ) : (
         <>
-          <div className="tableHeader row">{props.word}</div>
+          <div className="tableHeader row">{props.english}</div>
           <div className="tableHeader row"> {props.transcription}</div>
-          <div className="tableHeader row">{props.translation}</div>
+          <div className="tableHeader row">{props.russian}</div>
         </>
       )}
 
