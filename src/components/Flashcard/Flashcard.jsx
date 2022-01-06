@@ -133,7 +133,7 @@ function Flashcard() {
         <p>
           {count}/{words.length}
         </p>
-        <p onWordLearned={handleLearnedChange}>Total Learned: {isLearned}</p>
+        <p>Total Learned: {isLearned}</p>
       </div>
       <button className="sliderBtn" onClick={handleIncrementCount}>
         Next
