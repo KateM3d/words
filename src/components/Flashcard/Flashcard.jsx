@@ -1,58 +1,59 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "./Flashcard.scss";
 import Card from "../Card/Card";
+import { APIContext } from "../../Context/apiContext";
 
-const wordsColors = [
-  {
-    id: "1",
-    french: "rouge",
-    transcription: "[ ˈruːʒ ]",
-    english: "red",
-    category: "colors",
-  },
-  {
-    id: "2",
-    french: "gris",
-    transcription: "[ ɡʀi ]",
-    english: "grey",
-    category: "colors",
-  },
-  {
-    id: "3",
-    french: "vert",
-    transcription: "[ vɛʀ ]",
-    english: "green",
-    category: "colors",
-  },
-  {
-    id: "4",
-    french: "blanc",
-    transcription: "[ blɑ̃ ]",
-    english: "white",
-    category: "colors",
-  },
-  {
-    id: "5",
-    french: "noir",
-    transcription: "[ nwaʀ ]",
-    english: "black",
-    category: "colors",
-  },
-  {
-    id: "6",
-    french: "jaune",
-    transcription: "[ ʒon ]",
-    english: "yellow",
-    category: "colors",
-  },
-  {
-    id: "7",
-    french: "bleu",
-    transcription: "[ blo͝o ]",
-    english: "blue",
-    category: "colors",
-  },
-];
+// const wordsColors = [
+//   {
+//     id: "1",
+//     french: "rouge",
+//     transcription: "[ ˈruːʒ ]",
+//     english: "red",
+//     category: "colors",
+//   },
+//   {
+//     id: "2",
+//     french: "gris",
+//     transcription: "[ ɡʀi ]",
+//     english: "grey",
+//     category: "colors",
+//   },
+//   {
+//     id: "3",
+//     french: "vert",
+//     transcription: "[ vɛʀ ]",
+//     english: "green",
+//     category: "colors",
+//   },
+//   {
+//     id: "4",
+//     french: "blanc",
+//     transcription: "[ blɑ̃ ]",
+//     english: "white",
+//     category: "colors",
+//   },
+//   {
+//     id: "5",
+//     french: "noir",
+//     transcription: "[ nwaʀ ]",
+//     english: "black",
+//     category: "colors",
+//   },
+//   {
+//     id: "6",
+//     french: "jaune",
+//     transcription: "[ ʒon ]",
+//     english: "yellow",
+//     category: "colors",
+//   },
+//   {
+//     id: "7",
+//     french: "bleu",
+//     transcription: "[ blo͝o ]",
+//     english: "blue",
+//     category: "colors",
+//   },
+// ];
 
 // const wordsSport = [
 //   {
@@ -91,20 +92,21 @@ const wordsColors = [
 // let words=[wordsColors,wordsSport,wordsTravel]
 
 function Flashcard() {
-  const [count, setCount] = useState(0);
+  const { words } = useContext(APIContext);
+  const [count, setCount] = useState(1);
   const [isLearned, setIsLearned] = useState(0);
 
   function handleIncrementCount() {
     setCount(count + 1);
 
-    if (count + 2 > wordsColors.length) {
-      return setCount(0);
+    if (count + 1 > words.length) {
+      return setCount(1);
     }
   }
   const handleDecrementCount = () => {
     let newCount = count - 1;
     if (newCount < 1) {
-      newCount = wordsColors.length - 1;
+      newCount = words.length;
     }
     setCount(newCount);
   };
@@ -121,15 +123,15 @@ function Flashcard() {
       <div className="containerFlashcard">
         <Card
           onClick={handleLearnedChange}
-          key={wordsColors[count].id}
-          category={wordsColors[count].category}
-          french={wordsColors[count].french}
-          transcription={wordsColors[count].transcription}
-          english={wordsColors[count].english}
+          key={words.id}
+          tags={words.tags}
+          russian={words.russian}
+          transcription={words.transcription}
+          english={words.english}
         />
 
         <p>
-          {wordsColors[count].id}/{wordsColors.length}
+          {count}/{words.length}
         </p>
         <p onWordLearned={handleLearnedChange}>Total Learned: {isLearned}</p>
       </div>
