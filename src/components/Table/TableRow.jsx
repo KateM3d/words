@@ -34,16 +34,41 @@ function TableRow(props) {
     ) {
       alert("please check your spelling");
     } else {
-      setChangeWord(changeWord) && updateData(changeWord);
-      setChangeWord(changeTranslation) && updateData(changeTranslation);
-      console.log(changeWord);
-      console.log(changeTranslation);
+      //
+      //
+      fetch(`http://itgirlschool.justmakeit.ru/api/words/update`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json;charset=utf-8",
+        },
+        body: JSON.stringify({
+          english: changeWord,
+          russian: changeTranslation,
+          transcription: changeTranscription,
+          tags: [],
+        }),
+      })
+        .then((response) => {
+          if (response.status === 200) {
+            return response.json();
+          } else {
+            throw new Error("Oops! ...");
+          }
+        })
 
-      // changeTranslation !== props.russian && updateData(changeTranslation);
-      setBtnEdit(!btnEdit);
-      setValue("");
+        .then((data) => {
+          setChangeWord(changeWord);
+          setChangeTranslation(changeTranslation);
+          console.log(data);
+          console.log(changeWord);
+          console.log(changeTranslation);
+        })
+        .catch((err) => console.log(err));
     }
+    setBtnEdit(!btnEdit);
+    setValue("");
   }
+
   return (
     <form className="tableHeaderContainer" onSubmit={handleFormSubmit}>
       {btnEdit === true ? (
