@@ -1,7 +1,8 @@
 import React, { useContext } from "react";
 import { useState } from "react";
-import "./Table.scss";
 import { APIContext } from "../../Context/apiContext";
+import Swal from "sweetalert2";
+import "./Table.scss";
 
 function TableRow(props) {
   const [btnEdit, setBtnEdit] = useState(false);
@@ -34,10 +35,13 @@ function TableRow(props) {
       !onlyLatinCharacters(changeWord) ||
       !onlyLatinCharacters(changeTranslation)
     ) {
-      alert("please check your spelling");
+      Swal.fire({
+        title: "Attention!",
+        text: "Please use only latin symbols",
+        icon: "error",
+        confirmButtonText: "ok",
+      });
     } else {
-      //
-      console.log(id);
       fetch(`http://itgirlschool.justmakeit.ru/api/words/${props.id}/update`, {
         method: "POST",
         headers: {
@@ -73,15 +77,51 @@ function TableRow(props) {
         })
 
         .then((data) => {
-          alert("You have successfully changed updated the system");
+          Swal.fire({
+            title: "Thank you!",
+            text: "You have successfully updated the system",
+            icon: "success",
+            confirmButtonText: "Cool",
+          });
         })
-        .catch((err) => console.log(err));
+        .catch((err) =>
+          Swal.fire({
+            title: "Error!",
+            text: "Something went wrong...",
+            icon: "error",
+            confirmButtonText: "ok",
+          })
+        );
     }
 
     setBtnEdit(!btnEdit);
     setValue("");
   }
-
+  function handleInputDelete(id) {
+    fetch(`http://itgirlschool.justmakeit.ru/api/words/${props.id}/delete`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json;charset=utf-8",
+      },
+    }).then((response) => {
+      if (response.status === 200) {
+        const updateWords = [...words];
+        const updateWordsIndex = updateWords.findIndex(
+          (el) => el.id === props.id
+        );
+        updateWords[updateWordsIndex] = {
+          ...words[updateWordsIndex],
+          english: "",
+          russian: "",
+          transcription: "",
+        };
+        setWords(updateWords);
+        setValue("");
+      } else {
+        throw new Error("Oops! ...");
+      }
+    });
+  }
   return (
     <form className="tableHeaderContainer" onSubmit={handleFormSubmit}>
       {btnEdit === true ? (
@@ -123,7 +163,7 @@ function TableRow(props) {
         <button type="submit" onClick={handleModifyClick} className="tableBtn">
           {btnEdit === true ? "Delete Edit" : "Edit"}
         </button>
-        <button type="submit" className="tableBtn">
+        <button type="submit" className="tableBtn" onClick={handleInputDelete}>
           Delete
         </button>
         <button
