@@ -38,6 +38,7 @@ export function APIContextProvider({ children }) {
         error,
         isLoading,
         updateData,
+        setWords,
       }}
     >
       {children}
