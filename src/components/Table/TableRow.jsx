@@ -11,8 +11,10 @@ function TableRow(props) {
   );
   const [changeTranslation, setChangeTranslation] = useState(props.russian);
 
-  const { words, isLoading, error, updateData } = useContext(APIContext);
+  const { words, isLoading, error, updateData, setWords } =
+    useContext(APIContext);
   const [value, setValue] = useState("");
+
   if (error) return <h5>error...</h5>;
   if (isLoading || !words.length) return <h5>is loading...</h5>;
 
@@ -24,8 +26,8 @@ function TableRow(props) {
     e.preventDefault();
   }
 
-  function onlyLatinCharacters(value) {
-    return /^[a-zA-Z]+$/.test(value);
+  function onlyLatinCharacters(input) {
+    return /^[a-zA-Z]+$/.test(input);
   }
   function handleInputSave(id) {
     if (
@@ -36,7 +38,7 @@ function TableRow(props) {
     } else {
       //
       console.log(id);
-      fetch(`http://itgirlschool.justmakeit.ru/api/words/${id}/update`, {
+      fetch(`http://itgirlschool.justmakeit.ru/api/words/${props.id}/update`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json;charset=utf-8",
@@ -50,31 +52,28 @@ function TableRow(props) {
       })
         .then((response) => {
           if (response.status === 200) {
-            return response.json();
+            const updateWords = [...words];
+            const updateWordsIndex = updateWords.findIndex(
+              (el) => el.id === props.id
+            );
+            updateWords[updateWordsIndex] = {
+              ...words[updateWordsIndex],
+              english: changeWord,
+              russian: changeTranslation,
+              transcription: changeTranscription,
+            };
+            setWords(updateWords);
+            setBtnEdit(!btnEdit);
+            setValue("");
+
+            // return response.json();
           } else {
             throw new Error("Oops! ...");
           }
         })
 
         .then((data) => {
-          alert("yes-yes");
-          console.log(words[id].english);
-
-          // if (
-          //   changeTranslation ===
-          //  console.log( words[words.findIndex((el) => el.english === changeTranslation)]
-          //     .english)
-          // )
-          //           {
-          //             alert("yes");
-          //             setChangeWord(words[id].russian);
-          //             setChangeTranslation(words[id].english);
-          //
-          //             console.log(changeWord);
-          //             console.log(changeTranslation);
-          //           } else {
-          //             alert("NO");
-          //           // }
+          alert("You have successfully changed updated the system");
         })
         .catch((err) => console.log(err));
     }
