@@ -13,7 +13,7 @@ export function APIContextProvider({ children }) {
   useEffect(() => {
     setIsLoading(true);
     setError(false);
-    fetch("http://itgirlschool.justmakeit.ru/api/words")
+    fetch("http://localhost:8000/colors")
       .then((response) => {
         if (response.status === 200) {
           return response.json();
