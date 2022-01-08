@@ -6,12 +6,12 @@ import english from "./english.png";
 import french from "./french.png";
 
 const exerciseTypes = [
-  {
-    key: 31,
-    type: "English TO French",
-    typeImageOne: english,
-    typeImageTwo: french,
-  },
+  // {
+  //   key: 31,
+  //   type: "English TO French",
+  //   typeImageOne: english,
+  //   typeImageTwo: french,
+  // },
   {
     key: 32,
     type: "French TO English",
