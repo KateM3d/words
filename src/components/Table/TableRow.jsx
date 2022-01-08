@@ -1,14 +1,20 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useState } from "react";
+import { APIContext } from "../../Context/apiContext";
+import Swal from "sweetalert2";
 import "./Table.scss";
 
 function TableRow(props) {
   const [btnEdit, setBtnEdit] = useState(false);
-  const [changeWord, setChangeWord] = useState(props.word);
+  const [changeWord, setChangeWord] = useState(props.english);
   const [changeTranscription, setChangeTranscription] = useState(
     props.transcription
   );
-  const [changeTranslation, setChangeTranslation] = useState(props.translation);
+  const [changeTranslation, setChangeTranslation] = useState(props.french);
+
+  const { words, isLoading, error, updateData, setWords } =
+    useContext(APIContext);
+  const [value, setValue] = useState("");
 
   const handleModifyClick = () => {
     setBtnEdit(!btnEdit);
@@ -18,28 +24,90 @@ function TableRow(props) {
     e.preventDefault();
   }
 
-  function onlyLatinCharacters(value) {
-    return /^[a-zA-Z]+$/.test(value);
+  function onlyLatinCharacters(input) {
+    return /^[a-zA-Z]+$/.test(input);
   }
-  function handleInputSave() {
-    let inputInnerWord = changeWord[0].toUpperCase() + changeWord.slice(1);
-    let inputInnerTransl =
-      changeTranslation[0].toUpperCase() + changeTranslation.slice(1);
-    let correctTranscription = changeTranscription.includes("x");
-
+  function handleInputSave(id) {
     if (
-      !onlyLatinCharacters(inputInnerWord) ||
-      !onlyLatinCharacters(inputInnerTransl) ||
-      !onlyLatinCharacters(correctTranscription)
+      !onlyLatinCharacters(changeWord) ||
+      !onlyLatinCharacters(changeTranslation)
     ) {
-      alert("please check your spelling");
+      Swal.fire({
+        title: "Attention!",
+        text: "Please use only latin symbols",
+        icon: "error",
+        confirmButtonText: "ok",
+      });
     } else {
-      changeWord !== props.word && console.log(changeWord);
-      changeTranscription !== props.transcription &&
-        console.log(changeTranscription);
-      changeTranslation !== props.translation && console.log(changeTranslation);
-      setBtnEdit(!btnEdit);
+      fetch(`http://localhost:8000/colors/${props.id}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          french: changeTranslation,
+          transcription: changeTranscription,
+          english: changeWord,
+          category: [],
+        }),
+      })
+        .then((response) => {
+          console.log(response);
+          if (response.status === 200) {
+            const updateWords = [...words];
+            const updateWordsIndex = updateWords.findIndex(
+              (el) => el.id === props.id
+            );
+            updateWords[updateWordsIndex] = {
+              ...words[updateWordsIndex],
+              english: changeWord,
+              french: changeTranslation,
+              transcription: changeTranscription,
+            };
+            console.log(updateWords);
+            setWords(updateWords);
+            setBtnEdit(!btnEdit);
+            setValue("");
+          } else {
+            throw new Error("Oops! ...");
+          }
+        })
+
+        .then((data) => {
+          Swal.fire({
+            title: "Thank you!",
+            text: "You have successfully updated the system",
+            icon: "success",
+            confirmButtonText: "Cool",
+          });
+        })
+        .catch((err) =>
+          Swal.fire({
+            title: "Error!",
+            text: "Something went wrong...",
+            icon: "error",
+            confirmButtonText: "ok",
+          })
+        );
     }
+
+    setBtnEdit(!btnEdit);
+    setValue("");
+  }
+  function handleInputDelete(id) {
+    fetch(`http://localhost:8000/colors/${props.id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json;charset=utf-8",
+      },
+    }).then((response) => {
+      if (response.status === 200) {
+        const updateWords = words.filter((el) => el.id !== props.id);
+        setWords(updateWords);
+      } else {
+        throw new Error("Oops! ...");
+      }
+    });
   }
   return (
     <form className="tableHeaderContainer" onSubmit={handleFormSubmit}>
@@ -72,9 +140,9 @@ function TableRow(props) {
         </>
       ) : (
         <>
-          <div className="tableHeader row">{props.word}</div>
+          <div className="tableHeader row">{props.english}</div>
           <div className="tableHeader row"> {props.transcription}</div>
-          <div className="tableHeader row">{props.translation}</div>
+          <div className="tableHeader row">{props.french}</div>
         </>
       )}
 
@@ -82,21 +150,23 @@ function TableRow(props) {
         <button type="submit" onClick={handleModifyClick} className="tableBtn">
           {btnEdit === true ? "Delete Edit" : "Edit"}
         </button>
-        <button type="submit" className="tableBtn">
+        <button type="submit" className="tableBtn" onClick={handleInputDelete}>
           Delete
         </button>
-        <button
-          onClick={handleInputSave}
-          type="submit"
-          className={`tableBtn ${
-            (changeWord === "" ||
-              changeTranslation === "" ||
-              changeTranscription === "") &&
-            "disable"
-          }`}
-        >
-          Save
-        </button>
+        {btnEdit === true && (
+          <button
+            onClick={handleInputSave}
+            type="submit"
+            className={`tableBtn ${
+              (changeWord === "" ||
+                changeTranslation === "" ||
+                changeTranscription === "") &&
+              "disable"
+            }`}
+          >
+            Save
+          </button>
+        )}
       </div>
     </form>
   );

@@ -1,0 +1,89 @@
+{
+  "colors": [
+    {
+      "id": "1",
+      "english": "red",
+      "french": "rouge",
+      "transcription": "yyy",
+      "category": []
+    },
+    {
+      "id": "2",
+      "french": "gris",
+      "transcription": "[ ɡʀi ]",
+      "english": "grey",
+      "category": "colors"
+    },
+    {
+      "id": "3",
+      "french": "vert",
+      "transcription": "[ vɛʀ ]",
+      "english": "green",
+      "category": "colors"
+    },
+    {
+      "id": "4",
+      "french": "blanc",
+      "transcription": "[ blɑ̃ ]",
+      "english": "white",
+      "category": "colors"
+    },
+    {
+      "id": "5",
+      "french": "noir",
+      "transcription": "[ nwaʀ ]",
+      "english": "black",
+      "category": "colors"
+    },
+    {
+      "id": "6",
+      "french": "jaune",
+      "transcription": "[ ʒon ]",
+      "english": "yellow",
+      "category": "colors"
+    },
+    {
+      "id": "7",
+      "french": "bleu",
+      "transcription": "[ blo͝o ]",
+      "english": "blue",
+      "category": "colors"
+    },
+    {
+      "french": "test",
+      "id": "wr6VGfy"
+    }
+  ],
+  "sport": [
+    {
+      "id": "1",
+      "french": "le hockey",
+      "transcription": "[ ˈɔkɛ ]",
+      "english": "hockey",
+      "category": "sport"
+    },
+    {
+      "id": "2",
+      "french": "football",
+      "transcription": "[ futbol ]",
+      "english": "soccer",
+      "category": "sport"
+    }
+  ],
+  "travel": [
+    {
+      "id": "1",
+      "french": "avion",
+      "transcription": "[ avjɔ̃ ]",
+      "english": "plane",
+      "category": "travel"
+    },
+    {
+      "id": "2",
+      "french": "prendre des vacances",
+      "transcription": "[ vakɑ̃s ]",
+      "english": "to take a vacation",
+      "category": "travel"
+    }
+  ]
+}

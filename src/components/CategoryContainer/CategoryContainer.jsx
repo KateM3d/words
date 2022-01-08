@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Topic from "../Topic/Topic";
 import Flashcard from "../Flashcard/Flashcard";
 import Button from "../Button/Button";
@@ -10,10 +10,10 @@ function CategoryContainer() {
         <Topic />
       </div>
       <Flashcard />
-      <div className="containerRow">
+      {/* <div className="containerRow">
         <Button status="know" />
         <Button />
-      </div>
+      </div> */}
     </>
   );
 }

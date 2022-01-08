@@ -17,8 +17,8 @@ function Header() {
         <Link to="/exercise">
           <li className="menu">Exercise</li>
         </Link>
-        <Link to="/notes">
-          <li className="menu">Notes</li>
+        <Link to="/table">
+          <li className="menu">Table</li>
         </Link>
       </ul>
     </div>

@@ -13,6 +13,7 @@ export default function Card(props) {
       props.onClick();
     }
     setShowTranslation(!showTranslation);
+    console.log(props.french);
   }
 
   return (
