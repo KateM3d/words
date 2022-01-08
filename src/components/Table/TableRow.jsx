@@ -153,18 +153,20 @@ function TableRow(props) {
         <button type="submit" className="tableBtn" onClick={handleInputDelete}>
           Delete
         </button>
-        <button
-          onClick={handleInputSave}
-          type="submit"
-          className={`tableBtn ${
-            (changeWord === "" ||
-              changeTranslation === "" ||
-              changeTranscription === "") &&
-            "disable"
-          }`}
-        >
-          Save
-        </button>
+        {btnEdit === true && (
+          <button
+            onClick={handleInputSave}
+            type="submit"
+            className={`tableBtn ${
+              (changeWord === "" ||
+                changeTranslation === "" ||
+                changeTranscription === "") &&
+              "disable"
+            }`}
+          >
+            Save
+          </button>
+        )}
       </div>
     </form>
   );
