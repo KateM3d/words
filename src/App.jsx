@@ -42,7 +42,7 @@ function App() {
               <ExerciseCard />
             </div>
           </Route>
-          <Route path="/notes">
+          <Route path="/table">
             <Table />
           </Route>
           <Route>
