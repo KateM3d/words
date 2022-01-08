@@ -51,3 +51,5 @@ The words can be adjusted in the table, switched or removed.
 
 ![img1](assets/imageWeb.png)
 ![img2](assets/imageWeb2.png)
+
+Stack: React, React hooks, React Router, JSX, SASS, Json-Server, GSAP animation, Context API.
