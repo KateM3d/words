@@ -6,14 +6,16 @@ import Button from "../Button/Button";
 function CategoryContainer() {
   return (
     <>
-      <div className="containerRow">
-        <Topic />
-      </div>
-      <Flashcard />
-      {/* <div className="containerRow">
+      <div className="containerFlashcard">
+        <Flashcard />
+        {/* <div className="containerRow">
         <Button status="know" />
         <Button />
       </div> */}
+      </div>
+      <div className="containerRow">
+        <Topic />
+      </div>
     </>
   );
 }
