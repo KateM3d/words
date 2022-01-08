@@ -1,6 +1,6 @@
 import React from "react";
-import logo from "./logo.jpg";
 import { Link } from "react-router-dom";
+import logo from "./logo.jpg";
 import "./Header.scss";
 
 function Header() {
@@ -13,9 +13,6 @@ function Header() {
         <p className="menuSlogan">Learn French Today...</p>
         <Link to="/category">
           <li className="menu">Category</li>
-        </Link>
-        <Link to="/exercise">
-          <li className="menu">Exercise</li>
         </Link>
         <Link to="/table">
           <li className="menu">Table</li>

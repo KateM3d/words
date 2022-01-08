@@ -3,7 +3,7 @@ import TableRow from "./TableRow";
 import TableHeader from "./TableHeader";
 import { APIContext } from "../../Context/apiContext";
 
-function CreateTopicTable() {
+export default function CreateTopicTable() {
   const { words } = useContext(APIContext);
 
   return (
@@ -22,5 +22,3 @@ function CreateTopicTable() {
     </div>
   );
 }
-
-export default CreateTopicTable;

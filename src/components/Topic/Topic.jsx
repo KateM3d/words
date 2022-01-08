@@ -29,7 +29,7 @@ const categoryTopics = [
   },
 ];
 
-function Topic() {
+export default function Topic() {
   return (
     <>
       {categoryTopics.map((topic) => (
@@ -41,5 +41,3 @@ function Topic() {
     </>
   );
 }
-
-export default Topic;

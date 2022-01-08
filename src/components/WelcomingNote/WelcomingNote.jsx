@@ -1,12 +1,12 @@
 import React from "react";
-import "./WelcomingNote.scss";
-import welcome from "./welcome.jpg";
-import arrow from "./arrow.png";
 import { gsap } from "gsap";
 import { useEffect } from "react";
 import { useRef } from "react";
+import "./WelcomingNote.scss";
+import welcome from "./welcome.jpg";
+import arrow from "./arrow.png";
 
-function WelcomingNote() {
+export default function WelcomingNote() {
   const imgRef = useRef();
 
   useEffect(() => {
@@ -34,5 +34,3 @@ function WelcomingNote() {
     </div>
   );
 }
-
-export default WelcomingNote;

@@ -1,27 +1,26 @@
 import React, { useState, useContext } from "react";
-import "./Flashcard.scss";
 import Card from "../Card/Card";
 import { APIContext } from "../../Context/apiContext";
+import "./Flashcard.scss";
 
-function Flashcard() {
+export default function Flashcard() {
   const { words } = useContext(APIContext);
   const [count, setCount] = useState(0);
   const [isLearned, setIsLearned] = useState(0);
 
   function handleIncrementCount() {
     setCount(count + 1);
-
     if (count + 2 > words.length) {
       return setCount(0);
     }
   }
-  const handleDecrementCount = () => {
+  function handleDecrementCount() {
     let newCount = count - 1;
     if (newCount < 0) {
       newCount = words.length - 1;
     }
     setCount(newCount);
-  };
+  }
 
   function handleLearnedChange() {
     setIsLearned((prevLearned) => prevLearned + 1);
@@ -31,7 +30,6 @@ function Flashcard() {
       <button className="sliderBtn" onClick={handleDecrementCount}>
         Prev
       </button>
-
       <div className="containerFlashcard">
         <Card
           onClick={handleLearnedChange}
@@ -41,7 +39,6 @@ function Flashcard() {
           transcription={words[count]?.transcription}
           english={words[count]?.english}
         />
-
         <p>
           {count + 1}/{words.length}
         </p>
@@ -53,5 +50,3 @@ function Flashcard() {
     </div>
   );
 }
-
-export default Flashcard;

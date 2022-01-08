@@ -1,24 +1,22 @@
-import React, { useContext } from "react";
-import { useState } from "react";
+import React, { useContext, useState } from "react";
 import { APIContext } from "../../Context/apiContext";
 import Swal from "sweetalert2";
 import "./Table.scss";
 
-function TableRow(props) {
+export default function TableRow(props) {
   const [btnEdit, setBtnEdit] = useState(false);
   const [changeWord, setChangeWord] = useState(props.english);
   const [changeTranscription, setChangeTranscription] = useState(
     props.transcription
   );
   const [changeTranslation, setChangeTranslation] = useState(props.french);
-
   const { words, isLoading, error, updateData, setWords } =
     useContext(APIContext);
   const [value, setValue] = useState("");
 
-  const handleModifyClick = () => {
+  function handleModifyClick() {
     setBtnEdit(!btnEdit);
-  };
+  }
 
   function handleFormSubmit(e) {
     e.preventDefault();
@@ -39,7 +37,7 @@ function TableRow(props) {
         confirmButtonText: "ok",
       });
     } else {
-      fetch(`http://localhost:8000/colors/${props.id}`, {
+      fetch(`http://localhost:8000/words/${props.id}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -95,7 +93,7 @@ function TableRow(props) {
     setValue("");
   }
   function handleInputDelete(id) {
-    fetch(`http://localhost:8000/colors/${props.id}`, {
+    fetch(`http://localhost:8000/words/${props.id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json;charset=utf-8",
@@ -171,5 +169,3 @@ function TableRow(props) {
     </form>
   );
 }
-
-export default TableRow;

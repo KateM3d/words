@@ -25,18 +25,17 @@
         flex-direction: column;
     }
     &Row {
-        margin: 150px 0;
+        margin-top: 10px;
         display: flex;
         flex-direction: row;
         justify-content: space-around;
+    }
+    &Flashcard {
+        margin-top: 50px;
     }
 }
 
 .category {
     display: flex;
     justify-content: space-evenly;
-}
-
-.containerFlashcard {
-    margin-top: 15vh;
 }

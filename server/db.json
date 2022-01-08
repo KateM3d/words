@@ -1,82 +1,83 @@
 {
-    "colors": [{
-            "id": "1",
+    "words": [{
+            "id": "1678868",
             "english": "red",
             "french": "rouge",
-            "transcription": "yyy",
+            "transcription": "[ ruːʒ ]",
             "category": "colors"
         },
         {
-            "id": "2",
+            "id": "48682",
             "french": "gris",
             "transcription": "[ ɡʀi ]",
             "english": "grey",
             "category": "colors"
         },
         {
-            "id": "3",
+            "id": "37889",
             "french": "vert",
             "transcription": "[ vɛʀ ]",
             "english": "green",
             "category": "colors"
         },
         {
-            "id": "4",
+            "id": "43446",
             "french": "blanc",
             "transcription": "[ blɑ̃ ]",
             "english": "white",
             "category": "colors"
         },
         {
-            "id": "5",
+            "id": "52223",
             "french": "noir",
             "transcription": "[ nwaʀ ]",
             "english": "black",
             "category": "colors"
         },
         {
-            "id": "6",
+            "id": "654332",
             "french": "jaune",
             "transcription": "[ ʒon ]",
             "english": "yellow",
             "category": "colors"
         },
         {
-            "id": "7",
+            "id": "7345",
             "french": "bleu",
             "transcription": "[ blo͝o ]",
             "english": "blue",
             "category": "colors"
         },
         {
+            "id": "11",
             "french": "test",
-            "id": "wr6VGfy"
-        }
-    ],
-    "sport": [{
-            "id": "1",
+            "transcription": "[ test ]",
+            "english": "test",
+            "category": "test"
+        },
+        {
+            "id": "122",
             "french": "le hockey",
             "transcription": "[ ˈɔkɛ ]",
             "english": "hockey",
             "category": "sport"
         },
         {
-            "id": "2",
+            "id": "23455",
             "french": "football",
             "transcription": "[ futbol ]",
             "english": "soccer",
             "category": "sport"
-        }
-    ],
-    "travel": [{
-            "id": "1",
+        },
+        {
+            "id": "155678",
             "french": "avion",
             "transcription": "[ avjɔ̃ ]",
             "english": "plane",
             "category": "travel"
         },
         {
-            "id": "2",
+            "id": "2233343",
             "french": "prendre des vacances",
             "transcription": "[ vakɑ̃s ]",
             "english": "to take a vacation",

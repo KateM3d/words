@@ -1,7 +1,7 @@
 import React from "react";
 import "./Table.scss";
 
-function TableHeader() {
+export default function TableHeader() {
   return (
     <div className="tableHeaderContainer">
       <div className="tableHeader">Word</div>
@@ -12,4 +12,3 @@ function TableHeader() {
   );
 }
 
-export default TableHeader;
