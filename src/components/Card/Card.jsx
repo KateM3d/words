@@ -13,14 +13,14 @@ export default function Card(props) {
       props.onClick();
     }
     setShowTranslation(!showTranslation);
-    console.log(props.russian);
+    console.log(props.french);
   }
 
   return (
     <div className="containerCards">
       <div className="flashcardBody">
-        <p className="word_category">{props.tags}</p>
-        <p className="word_french">{props.russian}</p>
+        <p className="word_category">{props.category}</p>
+        <p className="word_french">{props.french}</p>
         <p className="word_transcription">{props.transcription}</p>
         <p
           ref={btnRef}
