@@ -10,14 +10,11 @@ function TableRow(props) {
   const [changeTranscription, setChangeTranscription] = useState(
     props.transcription
   );
-  const [changeTranslation, setChangeTranslation] = useState(props.russian);
+  const [changeTranslation, setChangeTranslation] = useState(props.french);
 
   const { words, isLoading, error, updateData, setWords } =
     useContext(APIContext);
   const [value, setValue] = useState("");
-
-  if (error) return <h5>error...</h5>;
-  if (isLoading || !words.length) return <h5>is loading...</h5>;
 
   const handleModifyClick = () => {
     setBtnEdit(!btnEdit);
@@ -42,19 +39,20 @@ function TableRow(props) {
         confirmButtonText: "ok",
       });
     } else {
-      fetch(`http://itgirlschool.justmakeit.ru/api/words/${props.id}/update`, {
-        method: "POST",
+      fetch(`http://localhost:8000/colors/${props.id}`, {
+        method: "PATCH",
         headers: {
-          "Content-Type": "application/json;charset=utf-8",
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          english: changeWord,
-          russian: changeTranslation,
+          french: changeTranslation,
           transcription: changeTranscription,
-          tags: [],
+          english: changeWord,
+          category: [],
         }),
       })
         .then((response) => {
+          console.log(response);
           if (response.status === 200) {
             const updateWords = [...words];
             const updateWordsIndex = updateWords.findIndex(
@@ -63,14 +61,13 @@ function TableRow(props) {
             updateWords[updateWordsIndex] = {
               ...words[updateWordsIndex],
               english: changeWord,
-              russian: changeTranslation,
+              french: changeTranslation,
               transcription: changeTranscription,
             };
+            console.log(updateWords);
             setWords(updateWords);
             setBtnEdit(!btnEdit);
             setValue("");
-
-            // return response.json();
           } else {
             throw new Error("Oops! ...");
           }
@@ -98,25 +95,15 @@ function TableRow(props) {
     setValue("");
   }
   function handleInputDelete(id) {
-    fetch(`http://itgirlschool.justmakeit.ru/api/words/${props.id}/delete`, {
-      method: "POST",
+    fetch(`http://localhost:8000/colors/${props.id}`, {
+      method: "DELETE",
       headers: {
         "Content-Type": "application/json;charset=utf-8",
       },
     }).then((response) => {
       if (response.status === 200) {
-        const updateWords = [...words];
-        const updateWordsIndex = updateWords.findIndex(
-          (el) => el.id === props.id
-        );
-        updateWords[updateWordsIndex] = {
-          ...words[updateWordsIndex],
-          english: "",
-          russian: "",
-          transcription: "",
-        };
+        const updateWords = words.filter((el) => el.id !== props.id);
         setWords(updateWords);
-        setValue("");
       } else {
         throw new Error("Oops! ...");
       }
@@ -155,7 +142,7 @@ function TableRow(props) {
         <>
           <div className="tableHeader row">{props.english}</div>
           <div className="tableHeader row"> {props.transcription}</div>
-          <div className="tableHeader row">{props.russian}</div>
+          <div className="tableHeader row">{props.french}</div>
         </>
       )}
 
