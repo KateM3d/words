@@ -33,7 +33,6 @@ $fontColor: #3297da;
 .header {
     margin: -25px;
     background-color: #04132d;
-    width: 100vw;
     &Menu {
         display: flex;
         justify-content: right;
@@ -56,6 +55,11 @@ $fontColor: #3297da;
     }
 }
 
+body {
+    width: 100vw;
+    margin: auto;
+}
+
 .logo {
     margin-right: auto;
     width: 100px;
@@ -63,6 +67,7 @@ $fontColor: #3297da;
 
 a {
     text-decoration: none;
+    width: 150px;
 }
 
 .mistake {
@@ -163,6 +168,10 @@ a {
     }
 }
 
+.topicCard {
+    width: 250px;
+}
+
 .sliderBtn {
     border: 1px solid #247ed0;
     border-radius: 10px;
@@ -248,13 +257,48 @@ a {
     background-color: #04132d;
     color: #fff;
     height: 80px;
-    margin-bottom: 0;
-    margin-left: -25px;
     margin-top: 20vh;
+    margin-bottom: 0;
     background-color: #04132d;
-    width: 100vw;
     &Text {
         text-align: center;
         padding-top: 30px;
+    }
+}
+
+@media all and (max-width: 960px) {
+    .menuSlogan {
+        font-size: 25px;
+    }
+    .welcomePage {
+        flex-direction: column;
+    }
+    .topic {
+        &Card {
+            width: 150px;
+        }
+        &Image {
+            width: 120px;
+        }
+    }
+}
+
+@media all and (max-width: 750px) {
+    .menu {
+        font-size: 15px;
+    }
+    .welcomePage {
+        max-width: 80vw;
+    }
+}
+
+@media all and (max-width: 550px) {
+    .flashcardBody {
+        width: 200px
+    }
+    .topic {
+        &Card {
+            display: none;
+        }
     }
 }
