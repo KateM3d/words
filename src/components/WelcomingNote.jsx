@@ -1,10 +1,7 @@
-import React from "react";
+import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
-import { useEffect } from "react";
-import { useRef } from "react";
-import "./WelcomingNote.scss";
-import welcome from "./welcome.jpg";
-import arrow from "./arrow.png";
+import welcome from "../assets/welcome.jpg";
+import arrow from "../assets/arrow.png";
 
 export default function WelcomingNote() {
   const imgRef = useRef();

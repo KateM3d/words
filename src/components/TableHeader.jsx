@@ -1,6 +1,3 @@
-import React from "react";
-import "./Table.scss";
-
 export default function TableHeader() {
   return (
     <div className="tableHeaderContainer">
@@ -11,4 +8,3 @@ export default function TableHeader() {
     </div>
   );
 }
-

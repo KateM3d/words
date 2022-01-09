@@ -1,7 +1,7 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import TableRow from "./TableRow";
 import TableHeader from "./TableHeader";
-import { APIContext } from "../../Context/apiContext";
+import { APIContext } from "../Context/apiContext";
 
 export default function CreateTopicTable() {
   const { words } = useContext(APIContext);

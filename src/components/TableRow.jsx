@@ -1,7 +1,6 @@
-import React, { useContext, useState } from "react";
-import { APIContext } from "../../Context/apiContext";
+import { useContext, useState } from "react";
+import { APIContext } from "../Context/apiContext";
 import Swal from "sweetalert2";
-import "./Table.scss";
 
 export default function TableRow(props) {
   const [btnEdit, setBtnEdit] = useState(false);

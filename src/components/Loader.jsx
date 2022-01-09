@@ -1,6 +1,4 @@
-import React from "react";
-import "./Loader.scss";
-import loader from "./loader.gif";
+import loader from "../assets/loader.gif";
 
 export default function Loader() {
   return (

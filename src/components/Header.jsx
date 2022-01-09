@@ -1,7 +1,5 @@
-import React from "react";
 import { Link } from "react-router-dom";
-import logo from "./logo.jpg";
-import "./Header.scss";
+import logo from "../assets/logo.jpg";
 
 function Header() {
   return (

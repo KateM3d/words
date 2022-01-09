@@ -1,14 +1,14 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import Header from "./components/Header/Header";
-import WelcomingNote from "./components/WelcomingNote/WelcomingNote";
-import Table from "./components/Table/Table";
-import CategoryContainer from "./components/CategoryContainer/CategoryContainer";
-import Footer from "./components/Footer/Footer";
-import Loader from "./components/Loader/Loader";
 import { APIContext } from "./Context/apiContext";
+import Header from "./components/Header";
+import WelcomingNote from "./components/WelcomingNote";
+import Table from "./components/Table";
+import Mistake from "./components/404";
+import CategoryContainer from "./components/CategoryContainer";
+import Footer from "./components/Footer";
+import Loader from "./components/Loader";
 import "./App.scss";
-import image from "./404.jpg";
 
 export default function App() {
   const { isLoading, error } = useContext(APIContext);
@@ -25,26 +25,22 @@ export default function App() {
 
   return (
     <BrowserRouter>
-      <div className="App">
-        <Header />
-        <Switch>
-          <Route exact path="/">
-            <WelcomingNote />
-            <Table />
-          </Route>
-          <Route path="/category">
-            <CategoryContainer />
-          </Route>
-          <Route path="/table">
-            <Table />
-          </Route>
-          <Route>
-            <div className="mistake">
-              <img className="mistakeImg" src={image} alt="not found" />
-            </div>
-          </Route>
-        </Switch>
-      </div>
+      <Header />
+      <Switch>
+        <Route exact path="/">
+          <WelcomingNote />
+          <Table />
+        </Route>
+        <Route path="/category">
+          <CategoryContainer />
+        </Route>
+        <Route path="/table">
+          <Table />
+        </Route>
+        <Route>
+          <Mistake />
+        </Route>
+      </Switch>
       <Footer />
     </BrowserRouter>
   );

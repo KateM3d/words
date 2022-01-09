@@ -1,10 +1,7 @@
-import React from "react";
-import "../Flashcard/Flashcard.scss";
-import "./Topic.scss";
-import sport from "./sport.jpg";
-import travel from "./travel.jpg";
-import fun from "./fun.jpg";
-import colors from "./colors.jpg";
+import sport from "../assets/sport.jpg";
+import travel from "../assets/travel.jpg";
+import fun from "../assets/fun.jpg";
+import colors from "../assets/colors.jpg";
 
 const categoryTopics = [
   {

@@ -1,7 +1,68 @@
-.App {
-    display: block;
-    justify-content: center;
-    width: 100%;
+$fontFamily:'Montserrat',
+sans-serif;
+$fontColor: #3297da;
+.welcome {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &Page {
+        margin-top: 5vh;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+    &Message {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        &Text {
+            text-transform: uppercase;
+            font-family: 'Montserrat', sans-serif;
+        }
+    }
+    &Image {
+        height: 300px;
+    }
+    &Arrow {
+        width: 100px;
+        margin-top: 50px;
+    }
+}
+
+.header {
+    margin: -25px;
+    background-color: #04132d;
+    width: 100vw;
+    &Menu {
+        display: flex;
+        justify-content: right;
+        height: 100px;
+        align-items: center;
+    }
+}
+
+.menu {
+    list-style: none;
+    margin-right: 10vw;
+    font-family: $fontFamily;
+    color: $fontColor;
+    font-size: 22px;
+    &Slogan {
+        margin-right: auto;
+        color: #fff;
+        font-size: 60px;
+        font-family: 'Dancing Script', cursive;
+    }
+}
+
+.logo {
+    margin-right: auto;
+    width: 100px;
+}
+
+a {
+    text-decoration: none;
 }
 
 .mistake {
@@ -14,6 +75,13 @@
         text-align: center;
         margin: auto;
     }
+}
+
+.loader {
+    display: flex;
+    flex-direction: row;
+    margin: 30vh auto;
+    border: 2px solid olive;
 }
 
 .container {
@@ -30,12 +98,163 @@
         flex-direction: row;
         justify-content: space-around;
     }
+    &Cards {
+        display: flex;
+        flex-direction: row;
+    }
     &Flashcard {
-        margin-top: 50px;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        margin: 50px;
+        &Count {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
     }
 }
 
 .category {
     display: flex;
     justify-content: space-evenly;
+}
+
+.flashcardBody {
+    margin-top: 5px;
+    width: 350px;
+    height: 250px;
+    background-color: #fff;
+    border-radius: 20px;
+    border: 1px solid #04132d;
+    box-shadow: 2px 7px 25px 15px #6b788f;
+    text-align: center;
+    &:hover {
+        cursor: pointer;
+    }
+    .word {
+        &_category {
+            margin-top: 30px;
+            color: #C9CCD5;
+        }
+        &_french {
+            color: #053742;
+            font-size: 25px;
+        }
+        &_transcription {
+            color: #053742;
+            font-size: 20px;
+        }
+    }
+    .translationBtn {
+        margin: auto;
+        border: 1px solid #247ed0;
+        border-radius: 10px;
+        color: #3f90db;
+        background-color: #04132d;
+        width: 150px;
+        &:hover {
+            cursor: pointer;
+        }
+        &:focus {
+            border: 3px solid red;
+        }
+    }
+}
+
+.sliderBtn {
+    border: 1px solid #247ed0;
+    border-radius: 10px;
+    color: #3f90db;
+    background-color: #04132d;
+    height: 80px;
+    width: 100px;
+    font-size: 20px;
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.containerTable {
+    margin-top: 50px;
+}
+
+.table {
+    &Btn {
+        margin: 10px;
+        width: 70px;
+        height: 40px;
+        background-color: #04132d;
+        border: 2px solid #1b81c8;
+        border-radius: 10px;
+        // box-shadow: 5px 10px 50px 10px #6b788f;
+        color: #fff;
+        font-family: $fontFamily;
+        font-size: 15px;
+    }
+    &Header {
+        width: 400px;
+        text-align: center;
+        border: 1px solid $fontColor;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        padding: 20px;
+        background-color: #04132d;
+        color: $fontColor;
+        font-size: 25px;
+        &Container {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+    }
+}
+
+.row {
+    background-color: #fff;
+    &Btn {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: flex-end;
+    }
+}
+
+.input {
+    color: black;
+    font-size: 18px;
+}
+
+.red {
+    border: 2px solid red;
+}
+
+.disable {
+    background-color: grey;
+    cursor: not-allowed;
+}
+
+.topic {
+    &Image {
+        width: 200px;
+        height: 150px;
+    }
+    &Category {
+        font-size: 20px;
+    }
+}
+
+.footer {
+    background-color: #04132d;
+    color: #fff;
+    height: 80px;
+    margin-bottom: 0;
+    margin-left: -25px;
+    margin-top: 20vh;
+    background-color: #04132d;
+    width: 100vw;
+    &Text {
+        text-align: center;
+        padding-top: 30px;
+    }
 }

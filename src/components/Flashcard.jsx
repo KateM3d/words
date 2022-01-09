@@ -1,7 +1,6 @@
-import React, { useState, useContext } from "react";
-import Card from "../Card/Card";
-import { APIContext } from "../../Context/apiContext";
-import "./Flashcard.scss";
+import { useState, useContext } from "react";
+import Card from "./Card";
+import { APIContext } from "../Context/apiContext";
 
 export default function Flashcard() {
   const { words } = useContext(APIContext);

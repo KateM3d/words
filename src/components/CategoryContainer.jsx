@@ -1,6 +1,5 @@
-import React from "react";
-import Topic from "../Topic/Topic";
-import Flashcard from "../Flashcard/Flashcard";
+import Topic from "./Topic";
+import Flashcard from "./Flashcard";
 
 export default function CategoryContainer() {
   return (
