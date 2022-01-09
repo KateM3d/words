@@ -49,7 +49,7 @@ The purpose of the app is to help people learn foreign language (French) by usin
 Words are being distributed on the Flashcards in the Category section, and also in the Table on the front page (or Table section).
 The words can be adjusted in the table, switched or removed.
 
-![img1](assets/imageWeb.png)
-![img2](assets/imageWeb2.png)
+![img1](./src/assets/imageWeb.png)
+![img2](./src/assets/imageWeb2.png)
 
 Stack: React, React hooks, React Router, JSX, SASS, Json-Server, GSAP animation, Context API.
