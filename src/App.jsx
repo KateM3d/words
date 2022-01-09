@@ -5,7 +5,6 @@ import Header from "./components/Header/Header";
 import WelcomingNote from "./components/WelcomingNote/WelcomingNote";
 import ExerciseCard from "./components/ExerciseCard/ExerciseCard";
 import Table from "./components/Table/Table";
-
 import Footer from "./components/Footer/Footer";
 import CategoryContainer from "./components/CategoryContainer/CategoryContainer";
 
@@ -17,36 +16,22 @@ function App() {
       <>
         <div className="App">
           <Header />
-
           <Switch>
             <Route exact path="/">
               <WelcomingNote />
               <Table />
             </Route>
-
             <Route path="/category">
-              {/* <div className="containerRow"> */}
-              {/* <Topic />
-              </div>
-              <Flashcard />
-              <div className="containerRow">
-                <Button status="know" />
-                <Button />
-              </div> */}
-
               <CategoryContainer />
             </Route>
-
             <Route path="/exercise">
               <div className="containerRow">
                 <ExerciseCard />
               </div>
             </Route>
-
             <Route path="/notes">
               <Table />
             </Route>
-
             <Route>
               <div className="mistake">
                 <img className="mistakeImg" src={image} alt="not found" />
@@ -56,7 +41,7 @@ function App() {
         </div>
 
         <Footer />
-      </>
+      </>{" "}
     </BrowserRouter>
   );
 }
