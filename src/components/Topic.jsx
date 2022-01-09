@@ -30,7 +30,7 @@ export default function Topic() {
   return (
     <>
       {categoryTopics.map((topic) => (
-        <div key={topic.id} className="flashcardBody">
+        <div key={topic.id} className="flashcardBody topicCard">
           <p className={`topicCategory`}>{topic.category}</p>
           <img className="topicImage" src={topic.image} alt={topic.category} />
         </div>
