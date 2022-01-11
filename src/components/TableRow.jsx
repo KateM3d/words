@@ -9,8 +9,7 @@ export default function TableRow(props) {
     props.transcription
   );
   const [changeTranslation, setChangeTranslation] = useState(props.french);
-  const { words, isLoading, error, updateData, setWords } =
-    useContext(APIContext);
+  const { words, setWords } = useContext(APIContext);
 
   function handleModifyClick() {
     setBtnEdit(!btnEdit);
