@@ -11,7 +11,6 @@ export default function TableRow(props) {
   const [changeTranslation, setChangeTranslation] = useState(props.french);
   const { words, isLoading, error, updateData, setWords } =
     useContext(APIContext);
-  const [value, setValue] = useState("");
 
   function handleModifyClick() {
     setBtnEdit(!btnEdit);
@@ -64,7 +63,6 @@ export default function TableRow(props) {
             console.log(updateWords);
             setWords(updateWords);
             setBtnEdit(!btnEdit);
-            setValue("");
           } else {
             throw new Error("Oops! ...");
           }
@@ -87,9 +85,6 @@ export default function TableRow(props) {
           })
         );
     }
-
-    setBtnEdit(!btnEdit);
-    setValue("");
   }
   function handleInputDelete(id) {
     fetch(`http://localhost:8000/words/${props.id}`, {
@@ -145,7 +140,7 @@ export default function TableRow(props) {
 
       <div className="tableHeader row rowBtn">
         <button type="submit" onClick={handleModifyClick} className="tableBtn">
-          {btnEdit === true ? "Delete Edit" : "Edit"}
+          {btnEdit === true ? "Cancel" : "Edit"}
         </button>
         <button type="submit" className="tableBtn" onClick={handleInputDelete}>
           Delete
