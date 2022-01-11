@@ -16,7 +16,6 @@ export default function CreateTopicTable() {
           english={inner.english}
           transcription={inner.transcription}
           french={inner.french}
-          editMode={inner.id === 1002 || inner.id === 1004}
         />
       ))}
     </div>
