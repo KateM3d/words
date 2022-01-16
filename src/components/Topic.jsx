@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import sport from "../assets/sport.jpg";
 import travel from "../assets/travel.jpg";
 import fun from "../assets/fun.jpg";
@@ -21,20 +22,26 @@ const categoryTopics = [
   },
   {
     id: "004",
-    category: "Create Your Own Category",
+    category: "Fun",
     image: fun,
   },
 ];
 
 export default function Topic() {
   return (
-    <>
-      {categoryTopics.map((topic) => (
-        <div key={topic.id} className="flashcardBody topicCard">
-          <p className={`topicCategory`}>{topic.category}</p>
-          <img className="topicImage" src={topic.image} alt={topic.category} />
-        </div>
+    <div className="container">
+      {categoryTopics.map((topic, index) => (
+        <Link to="/exercise">
+          <div key={index} className="flashcardBody topicCard">
+            <p className={`topicCategory`}>{topic.category}</p>
+            <img
+              className="topicImage"
+              src={topic.image}
+              alt={topic.category}
+            />
+          </div>
+        </Link>
       ))}
-    </>
+    </div>
   );
 }
