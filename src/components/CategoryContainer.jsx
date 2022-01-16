@@ -1,4 +1,3 @@
-import Topic from "./Topic";
 import Flashcard from "./Flashcard";
 
 export default function CategoryContainer() {
@@ -6,9 +5,6 @@ export default function CategoryContainer() {
     <>
       <div className="containerFlashcard">
         <Flashcard />
-      </div>
-      <div className="containerRow">
-        <Topic />
       </div>
     </>
   );
