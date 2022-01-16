@@ -3,11 +3,13 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { APIContext } from "./Context/apiContext";
 import Header from "./components/Header";
 import WelcomingNote from "./components/WelcomingNote";
+import Topic from "./components/Topic";
 import Table from "./components/Table";
 import Mistake from "./components/404";
 import CategoryContainer from "./components/CategoryContainer";
 import Footer from "./components/Footer";
 import Loader from "./components/Loader";
+import NewWord from "./components/NewWord";
 import "./App.scss";
 
 export default function App() {
@@ -29,13 +31,16 @@ export default function App() {
       <Switch>
         <Route exact path="/">
           <WelcomingNote />
-          <Table />
+          <Topic />
         </Route>
-        <Route path="/category">
+        <Route exact path="/exercise">
           <CategoryContainer />
         </Route>
-        <Route path="/table">
+        <Route exact path="/table">
           <Table />
+        </Route>
+        <Route exact path="/words">
+          <NewWord />
         </Route>
         <Route>
           <Mistake />
