@@ -47,7 +47,6 @@ export default function TableRow(props) {
         }),
       })
         .then((response) => {
-          console.log(response);
           if (response.status === 200) {
             const updateWords = [...words];
             const updateWordsIndex = updateWords.findIndex(
@@ -59,7 +58,6 @@ export default function TableRow(props) {
               french: changeTranslation,
               transcription: changeTranscription,
             };
-            console.log(updateWords);
             setWords(updateWords);
             setBtnEdit(!btnEdit);
           } else {
