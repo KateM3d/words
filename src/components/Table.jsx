@@ -9,9 +9,9 @@ export default function CreateTopicTable() {
   return (
     <div className="containerTable">
       <TableHeader />
-      {words.map((inner) => (
+      {words.map((inner, index) => (
         <TableRow
-          key={inner.id}
+          key={index}
           id={inner.id}
           english={inner.english}
           transcription={inner.transcription}

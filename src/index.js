@@ -7,7 +7,7 @@ ReactDOM.render(
   <React.StrictMode>
     <APIContextProvider>
       <App />
-    </APIContextProvider>{" "}
+    </APIContextProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );

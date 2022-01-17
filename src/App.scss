@@ -121,6 +121,12 @@ a {
     }
 }
 
+.center {
+    display: flex;
+    align-items: center;
+    height: 55vh;
+}
+
 .category {
     display: flex;
     justify-content: space-evenly;

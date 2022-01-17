@@ -9,11 +9,14 @@ function Header() {
           <img src={logo} alt={logo} className="logo" />
         </Link>
         <p className="menuSlogan">Learn French Today...</p>
-        <Link to="/category">
-          <li className="menu">Category</li>
+        <Link to="/exercise">
+          <li className="menu">Exercise</li>
         </Link>
         <Link to="/table">
           <li className="menu">Table</li>
+        </Link>
+        <Link to="/words">
+          <li className="menu">Words</li>
         </Link>
       </ul>
     </div>
