@@ -31,8 +31,8 @@ export default function Topic() {
   return (
     <div className="container">
       {categoryTopics.map((topic, index) => (
-        <Link to="/exercise">
-          <div key={index} className="flashcardBody topicCard">
+        <Link to="/exercise" key={index}>
+          <div className="flashcardBody topicCard">
             <p className={`topicCategory`}>{topic.category}</p>
             <img
               className="topicImage"
