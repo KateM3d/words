@@ -3,10 +3,10 @@ import { APIContext } from "../Context/apiContext";
 import Swal from "sweetalert2";
 
 export default function NewWord(props) {
-  const [category, setCategory] = useState();
-  const [english, setEnglish] = useState();
-  const [transcription, setTranscription] = useState();
-  const [french, setFrench] = useState();
+  const [category, setCategory] = useState("");
+  const [english, setEnglish] = useState("");
+  const [transcription, setTranscription] = useState("");
+  const [french, setFrench] = useState("");
 
   const { words, setWords } = useContext(APIContext);
 
@@ -53,7 +53,6 @@ export default function NewWord(props) {
               transcription: transcription,
               category: category,
             };
-            console.log(updateWords);
             setWords(updateWords);
             Swal.fire({
               title: "Thank you!",
